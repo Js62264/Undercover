@@ -3,6 +3,9 @@
   <b>Bae Suzy Bot</b>
 </h1>
 
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=kalanakt&repo=Bae-Suzy-Bot-TG&theme=synthwave)](https://github.com/kalanakt/Bae-Suzy-Bot-TG&bg_color=#24292F)
+
+
 ## Note
 
 * This is Modified Verson Of [ Eva Maria Bot](https://github.com/EvamariaTG/EvaMaria)
