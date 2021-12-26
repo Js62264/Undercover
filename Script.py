@@ -16,8 +16,6 @@ class script(object):
 <b>DEVS:</b>
 - <a href=https://telegram.dog/EvaMariaDevs>Team Eva Maria</a>
 <b>Source Code</b>
-- <a href=https://github.com/kalanakt/Bae-Suzy-Bot-TG>Bae-Suzy-Bot-TG</a>
-<b>Note: This is not the main source code, we release this because the main repo (Eva Maria) Has Banned</b>
 """
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
