@@ -10,15 +10,11 @@ class script(object):
 ✯ 𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴: 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
 ✯ 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
 ✯ 𝙱𝚄𝙸𝙻𝙳 𝚂𝚃𝙰𝚃𝚄𝚂: v1.0.1 [ 𝙱𝙴𝚃𝙰 ]"""
-    SOURCE_TXT = """<b>NOTE:</b>
-- 𝘽𝙖𝙚 𝙎𝙪𝙯𝙮 is a open source project.
+    SOURCE_TXT = """<b>Maintenance By:</b>
+    
+    <a href='https://github.com/kalanakt'>Hash Minner</a>
+    
 
-<b>Source Code</b>
-
-- <a href=https://github.com/kalanakt/Bae-Suzy-Bot-TG>Bae-Suzy-TG</a>
-
-<b>NOTE:</b>
-<i>This Code Is Based On Eva Maria TG</i>
 """
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
