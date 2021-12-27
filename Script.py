@@ -13,9 +13,12 @@ class script(object):
     SOURCE_TXT = """<b>NOTE:</b>
 - 𝘽𝙖𝙚 𝙎𝙪𝙯𝙮 is a open source project.
 
-<b>DEVS:</b>
-- <a href=https://telegram.dog/EvaMariaDevs>Team Eva Maria</a>
 <b>Source Code</b>
+
+- <a href=https://github.com/kalanakt/Bae-Suzy-Bot-TG>Bae-Suzy-TG</a>
+
+<b>NOTE:</b>
+<i>This Code Is Based On Eva Maria TG</i>
 """
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
