@@ -538,7 +538,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "stats":
         buttons = [[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
-            InlineKeyboardButton('♻️', callback_data='rfrsh')
+            InlineKeyboardButton('🚧 Close', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         timeleft = dyno
@@ -555,25 +555,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode='html'
         )
     elif query.data == "rfrsh":
-        await query.answer("Fetching MongoDb DataBase")
-        buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
-            InlineKeyboardButton('♻️', callback_data='rfrsh')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        total = await Media.count_documents()
-        users = await db.total_users_count()
-        chats = await db.total_chat_count()
-        monsize = await db.get_db_size()
-        free = 536870912 - monsize
-        monsize = get_size(monsize)
-        free = get_size(free)
-        timeleft = dyno
-        await query.message.edit_text(
-            text=script.STATUS_TXT.format(total, users, chats, monsize, free, timeleft),
-            reply_markup=reply_markup,
-            parse_mode='html'
-      )
+        await query.message.delete()
+        
     
 
 async def auto_filter(client, msg, spoll=False):
