@@ -14,11 +14,8 @@ async def batch(bot:Client, update:Message):
  
     user_id = update.from_user.id 
  
-    post1:Message = await bot.ask(chat_id=update.chat.id, text="➭ Forward the First Message from Your Channel (with Quotes).. \n➭ Make Sure I'm Admin In that Channel \n➭ Send /cancel To Stop Procees", timeout=360) 
+    post1:Message = await bot.ask(chat_id=update.chat.id, text="➭ Forward the First Message from Your Channel (with Quotes).. \n➭ Make Sure I'm Admin In that Channel", timeout=360) 
     if not post1: return 
-    
-    if post1.text == "/cancel":
-     return await message.reply_text('Cancelled Successfully...')
  
     if not post1.forward_from_chat: 
  
@@ -41,11 +38,8 @@ async def batch(bot:Client, update:Message):
         print(e) 
         return await update.reply_text("Something Went Wrong Please Try Again Later") 
  
-    post2 = await bot.ask(chat_id=update.chat.id, text="Now Forward The Last Message From The Same Channel Or Send \cancel to Stop Process", timeout=360) 
+    post2 = await bot.ask(chat_id=update.chat.id, text="Now Forward The Last Message From The Same Channel Or Send ", timeout=360) 
     if not post2 : return 
-   
-    if post2.text == "/cancel":
-     return await message.reply_text('Cancelled Successfully...')
  
     chat_id2 = post2.forward_from_chat.id 
     if not chat_id1==chat_id2 : 
