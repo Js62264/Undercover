@@ -1,11 +1,11 @@
 # © 2022 kalanakt | Hashminner.
  
 import re 
- 
+import asyncio
 from pyromod import listen 
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup 
 from pyrogram import Client, filters
-from pyrogram.errors import PeerIdInvalid, MessageIdInvalid
+from pyrogram.errors import PeerIdInvalid, MessageIdInvalid, FloodWait
 
 from helper_func import encode, get_message_id
  
@@ -67,6 +67,12 @@ async def batch(bot:Client, update:Message):
     Files = []
     for i in range(msg_id1, (msg_id2+1)):
      xx = await bot.copy_message(chat_id = bot.db_channel.id, from_chat_id=chat_id2,message_id = i, disable_notification=True)
+     await asyncio.sleep(1)
+     except FloodWait as e:
+      await asyncio.sleep(e.x)
+     except Exception as e:
+      print(e)
+     pass
      Files.append(xx)
     
     converted_id1 = Files[0].message_id * abs(bot.db_channel.id)
