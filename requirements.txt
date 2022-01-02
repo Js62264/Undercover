@@ -1,4 +1,3 @@
-https://github.com/Mahesh0253/pyrogram/archive/inline.zip
 tgcrypto==1.2.2
 pymongo[srv]==3.11.4
 motor==2.4.0
@@ -8,3 +7,9 @@ requests
 bs4
 imdbpy
 heroku3
+pyrogram~=1.2.20
+TgCrypto
+Pyromod
+sqlalchemy~=1.3.23
+psycopg2-binary
+feedparser
