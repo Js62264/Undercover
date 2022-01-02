@@ -63,12 +63,16 @@ async def batch(bot:Client, update:Message):
     if not msg_id1<=msg_id2: 
         return await update.reply_text("The First Message Has To Be Posted Above The Second In The Channel To Generate A Batch") 
     
+    yy = await bot.send_message(message.chat.id, text=f"Please Wait I'm Genarting Your Batch File Link")
+    await asyncio.sleep(10)
+    await yy.delete()
+    
     rng = [msg_id1]
     Files = []
     try:
      for i in range(msg_id1, (msg_id2+1)):
       xx = await bot.copy_message(chat_id = bot.db_channel.id, from_chat_id=chat_id2,message_id = i, disable_notification=True)
-      await asyncio.sleep(1)
+      await asyncio.sleep(0.5)
       Files.append(xx)
      
     except FloodWait as e:
