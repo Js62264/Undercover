@@ -1,3 +1,5 @@
+# © 2022 @kalanakt | HashMinner
+
 import os
 
 import logging
