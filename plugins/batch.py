@@ -72,7 +72,9 @@ async def batch(bot:Client, update:Message):
       xx = await bot.copy_message(chat_id = bot.db_channel.id, from_chat_id=chat_id2,message_id = i, disable_notification=True)
       await asyncio.sleep(0.5)
       Files.append(xx)
-     
+    except MediaEmpty:
+     pass
+    
     except FloodWait as e:
      await asyncio.sleep(e.x)
      
