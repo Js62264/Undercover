@@ -6,6 +6,8 @@ class script(object):
 """
     HELP_TXT = """𝙷𝚎𝚢 {}, 
     𝚃𝚊𝚔𝚎 𝙰 𝙼𝚒𝚗𝚞𝚝𝚎 𝙰𝚗𝚍 𝚁𝚎𝚊𝚍 𝙲𝚊𝚛𝚎𝚏𝚞𝚕𝚕𝚢"""
+    
+    
     ABOUT_TXT = """
 ✯ 𝙼𝚢 𝙽𝚊𝚖𝚎 : <a href='https://t.me/SpaciousUniverseBot'>𝙱𝚊𝚎 𝚂𝚞𝚣𝚢</a>
 ✯ 𝙻𝚒𝚋𝚛𝚊𝚛𝚢 : <a href='https://docs.pyrogram.org/'>𝙿𝚢𝚛𝚘𝚐𝚛𝚊𝚖 v𝟷.𝟸.𝟸𝟶</a>
@@ -31,13 +33,14 @@ class script(object):
 • /filters - <code>list all the filters of a chat</code>
 • /del - <code>delete a specific filter in chat</code>
 • /delall - <code>delete the whole filters in a chat (chat owner only)</code>"""
+    
     BUTTON_TXT = """Help: <b>Buttons</b>
 
 - Eva Maria Supports both url and alert inline buttons.
 
 <b>NOTE:</b>
 1. Telegram will not allows you to send buttons without any content, so content is mandatory.
-2. Eva Maria supports buttons with any telegram media type.
+2. Bae Suzy supports buttons with any telegram media type.
 3. Buttons should be properly parsed as markdown format
 
 <b>URL buttons:</b>
@@ -45,6 +48,8 @@ class script(object):
 
 <b>Alert buttons:</b>
 <code>[Button Text](buttonalert:This is an alert message)</code>"""
+    
+    
     AUTOFILTER_TXT = """Help: <b>Auto Filter</b>
 
 <b>NOTE:</b>
@@ -52,6 +57,8 @@ class script(object):
 2. make sure that your channel does not contains cam rip, porn and fake files.
 3. Forward the last message to me with quotes.
  I'll add all the files in that channel to my db."""
+    
+    
     CONNECTION_TXT = """Help: <b>Connections</b>
 
 - Used to connect bot to PM for managing filters 
@@ -65,23 +72,34 @@ class script(object):
 • /connect  - <code>connect a particular chat to your PM</code>
 • /disconnect  - <code>disconnect from a chat</code>
 • /connections - <code>list all your connections</code>"""
-    EXTRAMOD_TXT = """Help: <b>Extra Modules</b>
-
-<b>NOTE:</b>
-these are the extra features of suzy
+    
+    
+    SEARCH_TXT = """Help: <b>Search Engine</b>
+A Module To Get Info From Google
 
 <b>Commands and Usage:</b>
-• /imdb  - <code>get the film information from IMDb source.</code>
 • /search  - <code>get the film information from various sources.</code>"""
+    
+    
     ID_TXT = """Help: <b>Chat/User Id <b>
-   
+A Module To Fetch Telegram Chat ID & User ID
+
+<b>Commands and Usage:</b>
+• /id  - <code>Use privart for user id and send to group for get chat id.</code>"""
+    
+    
+    IMDB_TXT = """Help: <b>IMDb Info <b>
+A Module To Get Movie/Tv Series Info
+
+<b>Commands and Usage:</b>
+• /imdb  - <code>get the movie/tv series information from IMDb source.</code>"""
+    
     
     INFO_TXT ="""Help: <b>User Info<b>
 A Module To Fetch Telegram User Info
    
 <b>Commands and Usage:</b>
 • /info  - <code>get information about a user.</code>"""
-    
     
     
     ADMIN_TXT = """Help: <b>Admin mods</b>
@@ -100,12 +118,16 @@ This module only works for my admins
 • /unban  - <code>to unban a user.</code>
 • /channel - <code>to get list of total connected channels</code>
 • /broadcast - <code>to broadcast a message to all users</code>"""
-    STATUS_TXT = """★ 𝚃𝙾𝚃𝙰𝙻 𝙵𝙸𝙻𝙴𝚂: <code>{}</code>
-★ 𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂: <code>{}</code>
-★ 𝚃𝙾𝚃𝙰𝙻 𝙲𝙷𝙰𝚃𝚂: <code>{}</code>
-★ 𝚄𝚂𝙴𝙳 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code> 
-★ 𝙵𝚁𝙴𝙴 𝚂𝚃𝙾𝚁𝙰𝙶𝙴: <code>{}</code>
-★ 𝙷𝙴𝚁𝙾𝙺𝚄 𝚃𝙸𝙼𝙴 𝙻𝙴𝙵𝚃: <code>{}</code> """
+    
+    STATUS_TXT = """
+★ 𝚃𝚘𝚝𝚊𝚕 𝙵𝚒𝚕𝚎𝚜: <code>{}</code>
+★ 𝙰𝚌𝚝𝚒𝚟𝚎 𝚄𝚜𝚎𝚛𝚜: <code>{}</code>
+★ 𝚃𝚘𝚝𝚊𝚕 𝙶𝚛𝚘𝚞𝚙𝚜: <code>{}</code>
+★ 𝙳𝚒𝚜𝚔 𝚂𝚝𝚘𝚛𝚊𝚐𝚎: <code>{}</code> 
+★ 𝙵𝚛𝚎𝚎 𝚂𝚝𝚘𝚛𝚊𝚐𝚎: <code>{}</code>
+★ 𝙷𝚎𝚛𝚘𝚔𝚞 𝚃𝚒𝚖𝚎 𝙻𝚎𝚏𝚝: <code>{}</code> 
+"""
+    
     LOG_TEXT_G = """#NewGroup #BSB
 Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
