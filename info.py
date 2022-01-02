@@ -11,7 +11,7 @@ def is_enabled(value, default):
         return default
 
 # Bot information
-SESSION = environ.get('SESSION', 'Bot')
+SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ['API_ID'])
 API_HASH = environ['API_HASH']
 BOT_TOKEN = environ['BOT_TOKEN']
@@ -30,6 +30,7 @@ auth_channel = environ.get('AUTH_CHANNEL')
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
+CHANNEL_ID = int(environ.get("CHANNEL_ID", ""))
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "")
@@ -46,6 +47,7 @@ P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "True")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "False")), False)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", None)
+CUSTOM_CAPTION = environ.get("CUSTOM_CAPTION", None)
 IMDB_TEMPLATE = environ.get("IMDB_TEMPLATE", "🎬 <b>𝙏𝙞𝙩𝙡𝙚:</b> <a href={url}>{title} {year}</a>\n⏰ <b>𝙍𝙪𝙣𝙏𝙞𝙢𝙚:</b> {runtime} min\n🌟 <b>𝙍𝙖𝙩𝙞𝙣𝙜:</b> <a href={url}/ratings>{rating}</a> /10 <i>({votes} Votes)<i/>\n🔊 <b>𝙇𝙖𝙣𝙜𝙪𝙖𝙜𝙚𝙨:</b> {languages}\n🎭 <b>𝙂𝙚𝙣𝙧𝙚𝙨:</b> {genres}\n📆 <b>𝙍𝙚𝙡𝙚𝙖𝙨𝙚 𝙄𝙣𝙛𝙤:</b> <a href={url}/releaseinfo>{release_date}</a>\n🎯 <b>𝙙𝙞𝙧𝙚𝙘𝙩𝙤𝙧:</b> {director}\n✍️ <b>𝙒𝙧𝙞𝙩𝙚𝙧:</b> {writer}\n📝 <b>𝙎𝙮𝙣𝙤𝙥𝙨𝙞𝙨:</b> {plot} \n\nMy PM: @SpaciousUniverseBot")
 LONG_IMDB_DESCRIPTION = is_enabled(environ.get("LONG_IMDB_DESCRIPTION", "False"), False)
 SPELL_CHECK_REPLY = is_enabled(environ.get("SPELL_CHECK_REPLY", "True"), True)
