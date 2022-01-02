@@ -13,12 +13,19 @@ from database.users_chats_db import db
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, PICS, CUSTOM_CAPTION
 from utils import get_size, is_subscribed, temp
 from helper_func import subscribed, encode, decode, get_messages
+from database.sql import add_user, query_msg, full_userbase
 
 logger = logging.getLogger(__name__)
 
                 
 @Client.on_message(filters.command("start"))
 async def start(client, message):
+    id = message.from_user.id
+    user_name = '@' + message.from_user.username if message.from_user.username else None
+    try:
+        await add_user(id, user_name)
+    except:
+        pass
     text = message.text
     if len(text)>7:
         try:
