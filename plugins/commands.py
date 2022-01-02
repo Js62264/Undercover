@@ -13,19 +13,12 @@ from database.users_chats_db import db
 from info import CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, PICS, CUSTOM_CAPTION
 from utils import get_size, is_subscribed, temp
 from helper_func import subscribed, encode, decode, get_messages
-from database.sql import add_user, query_msg, full_userbase
 
 logger = logging.getLogger(__name__)
 
                 
 @Client.on_message(filters.command("start"))
 async def start(client, message):
-    id = message.from_user.id
-    user_name = '@' + message.from_user.username if message.from_user.username else None
-    try:
-        await add_user(id, user_name)
-    except:
-        pass
     text = message.text
     if len(text)>7:
         try:
@@ -65,17 +58,12 @@ async def start(client, message):
 
         for msg in messages:
 
-            if bool(CUSTOM_CAPTION) & bool(msg.document):
-                caption = CUSTOM_CAPTION.format(previouscaption = "" if not msg.caption else msg.caption.html, filename = msg.document.file_name)
-            else:
-                caption = "" if not msg.caption else msg.caption.html
-
             try:
-                await msg.copy(chat_id=message.from_user.id, caption = caption)
+                await msg.copy(chat_id=message.from_user.id)
                 await asyncio.sleep(0.5)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id, caption = caption)
+                await msg.copy(chat_id=message.from_user.id)
             except:
                 pass
         return
