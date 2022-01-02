@@ -80,6 +80,12 @@ A Module To Get Info From Google
 <b>Commands and Usage:</b>
 • /search  - <code>get the film information from various sources.</code>"""
     
+    SPELL_TXT = """Help: <b>Check Speeling</b>
+A Module To Check Spelling From Google
+
+<b>Usage:</b>
+• If you'r searching with wrong speeling, bot will check your spelling and get correct results</code>"""
+    
     
     ID_TXT = """Help: <b>Chat/User Id <b>
 A Module To Fetch Telegram Chat ID & User ID
