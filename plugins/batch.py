@@ -67,6 +67,9 @@ async def batch(bot:Client, update:Message):
     Files = []
     for i in range(msg_id1, (msg_id2+1)):
      xx = await bot.copy_message(chat_id = bot.db_channel.id, from_chat_id=chat_id2,message_id = i, disable_notification=True)
+     yy = await bot.send_message(message.chat.id, text="Please Wait I'm Genarating Your Link")
+     await asyncio.sleep(10)
+     await yy.delete()
      Files.append(xx)
     
     converted_id1 = Files[0].message_id * abs(bot.db_channel.id)
