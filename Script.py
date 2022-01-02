@@ -5,7 +5,7 @@ class script(object):
 𝙹𝚞𝚜𝚝 𝙰𝚍𝚍 𝙼𝚎 𝚃𝚘 𝚈𝚘𝚞𝚛 𝙶𝚛𝚘𝚞𝚙 𝙰𝚗𝚍 𝙴𝚗𝚓𝚘𝚢
 """
     HELP_TXT = """𝙷𝚎𝚢 {}, 
-    𝚃𝚊𝚔𝚎 𝙰 𝙼𝚒𝚗𝚞𝚝𝚎 𝙰𝚗𝚍 𝚁𝚎𝚊𝚍 𝙲𝚊𝚛𝚎𝚏𝚞𝚕𝚕𝚢"""
+𝚃𝚊𝚔𝚎 𝙰 𝙼𝚒𝚗𝚞𝚝𝚎 𝙰𝚗𝚍 𝚁𝚎𝚊𝚍 𝙲𝚊𝚛𝚎𝚏𝚞𝚕𝚕𝚢"""
     
     
     ABOUT_TXT = """
@@ -100,7 +100,13 @@ A Module To Fetch Telegram User Info
    
 <b>Commands and Usage:</b>
 • /info  - <code>get information about a user.</code>"""
- 
+    GENLINK_TXT ="""Help: <b>Batch Link<b>
+A Module To Genarte Link To post
+   
+<b>Commands and Usage:</b>
+• /genlink  - <code>Foewad First And Last Messeages And Get Link</code>"""
+
+
     BATCH_TXT ="""Help: <b>Batch Link<b>
 A Module To Genarte Link To Batch Files
    
