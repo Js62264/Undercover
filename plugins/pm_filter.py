@@ -482,7 +482,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Batch', callback_data='batch'),
             InlineKeyboardButton('Genlink', callback_data='genlink')
             ],[
-            InlineKeyboardButton('ID', callback_data='id'),
+            InlineKeyboardButton('Spell Check', callback_data='spell'),
             InlineKeyboardButton('Info', callback_data='info')
             ],[
             InlineKeyboardButton('🢪', callback_data='help'),
@@ -541,6 +541,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.AUTOFILTER_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "spell":
+        buttons = [[
+            InlineKeyboardButton('Back', callback_data='help'),
+            InlineKeyboardButton(' Close', callback_data='cls')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.SPELL_TXT,
             reply_markup=reply_markup,
             parse_mode='html'
         )
