@@ -100,6 +100,15 @@ A Module To Fetch Telegram User Info
    
 <b>Commands and Usage:</b>
 • /info  - <code>get information about a user.</code>"""
+ 
+    BATCH_TXT ="""Help: <b>Batch Link<b>
+A Module To Genarte Link To Batch Files
+   
+<b>Commands and Usage:</b>
+• /batch  - <code>Foewad First And Last Messeages And Get Link</code>
+ 
+<b>NOTE:
+• If Your File Sharing Channel is privet Channel, make bae Suzy Admin in That Channel Before Forward"""
     
     
     ADMIN_TXT = """Help: <b>Admin mods</b>
