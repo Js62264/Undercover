@@ -558,7 +558,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "search":
         buttons = [[
-            InlineKeyboardButton(' Back', callback_data='help')
+            InlineKeyboardButton(' Back', callback_data='help'),
+            InlineKeyboardButton(' Close', callback_data='cls')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -580,7 +581,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "genlink":
         buttons = [[
-            InlineKeyboardButton(' Back', callback_data='help')
+            InlineKeyboardButton(' Back', callback_data='help'),
+            InlineKeyboardButton(' Close', callback_data='cls')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -590,7 +592,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "batch":
         buttons = [[
-            InlineKeyboardButton(' Back', callback_data='help')
+            InlineKeyboardButton(' Back', callback_data='help'),
+            InlineKeyboardButton(' Close', callback_data='cls')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -601,7 +604,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
          
     elif query.data == "info":
         buttons = [[
-            InlineKeyboardButton(' Back', callback_data='help')
+            InlineKeyboardButton(' Back', callback_data='help'),
+            InlineKeyboardButton(' Close', callback_data='cls')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -612,7 +616,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
          
     elif query.data == "coct":
         buttons = [[
-            InlineKeyboardButton('Back', callback_data='help')
+            InlineKeyboardButton('Back', callback_data='help'),
+            InlineKeyboardButton(' Close', callback_data='cls')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
