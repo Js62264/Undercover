@@ -38,7 +38,7 @@ async def batch(bot:Client, update:Message):
         print(e) 
         return await update.reply_text("Something Went Wrong Please Try Again Later") 
  
-    post2 = await bot.ask(chat_id=update.chat.id, text="Now Forward The Last Message From The Same Channel Or Send ", timeout=360) 
+    post2 = await bot.ask(chat_id=update.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
     if not post2 : return 
  
     chat_id2 = post2.forward_from_chat.id 
