@@ -1,5 +1,7 @@
 import logging
 import logging.config
+import pyromod.listen
+import sys
 
 # Get logging configurations
 logging.config.fileConfig('logging.conf')
@@ -9,7 +11,7 @@ from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from database.ia_filterdb import Media
 from database.users_chats_db import db
-from info import SESSION, API_ID, API_HASH, BOT_TOKEN
+from info import SESSION, API_ID, API_HASH, BOT_TOKEN, CHANNEL_ID
 from utils import temp
 
 class Bot(Client):
@@ -36,6 +38,18 @@ class Bot(Client):
         temp.U_NAME = me.username
         self.username = '@' + me.username
         print(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
+        
+        try:
+            db_channel = await self.get_chat(CHANNEL_ID)
+            self.db_channel = db_channel
+            test = await self.send_message(chat_id = db_channel.id, text = "Test Message")
+            await test.delete()
+           
+        except Exception as e:
+            self.LOGGER(__name__).warning(e)
+            self.LOGGER(__name__).warning(f"Make Sure bot is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}")
+            self.LOGGER(__name__).info("\nBot Stopped. Join https://t.me/TMWAD_Support for support")
+            sys.exit()
 
     async def stop(self, *args):
         await super().stop()
