@@ -1,21 +1,22 @@
 class script(object):
-    START_TXT = """𝙷𝙴𝙻𝙾 {},
-𝙼𝚈 𝙽𝙰𝙼𝙴 𝙸𝚂 <a href='https://t.me/Spaciousuniversebot'>𝘽𝙖𝙚 𝙎𝙪𝙯𝙮</a>, 𝙸 𝙲𝙰𝙽 𝙿𝚁𝙾𝚅𝙸𝙳𝙴 𝙼𝙾𝚅𝙸𝙴𝚂, 𝙹𝚄𝚂𝚃 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿 𝙰𝙽𝙳 𝙴𝙽𝙹𝙾𝚈 😍"""
-    HELP_TXT = """𝙷𝙴𝚈 {}
-𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂."""
-    ABOUT_TXT = """✯ 𝙼𝚈 𝙽𝙰𝙼𝙴: 𝘽𝙖𝙚 𝙎𝙪𝙯𝙮
-✯ 𝙲𝚁𝙴𝙰𝚃𝙾𝚁: 𝚃𝚎𝚊𝚖 𝙴𝚟𝚊 𝙼𝚊𝚛𝚒𝚊
-✯ 𝙻𝙸𝙱𝚁𝙰𝚁𝚈: 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼
-✯ 𝙻𝙰𝙽𝙶𝚄𝙰𝙶𝙴: 𝙿𝚈𝚃𝙷𝙾𝙽 𝟹
-✯ 𝙳𝙰𝚃𝙰 𝙱𝙰𝚂𝙴: 𝙼𝙾𝙽𝙶𝙾 𝙳𝙱
-✯ 𝙱𝙾𝚃 𝚂𝙴𝚁𝚅𝙴𝚁: 𝙷𝙴𝚁𝙾𝙺𝚄
-✯ 𝙱𝚄𝙸𝙻𝙳 𝚂𝚃𝙰𝚃𝚄𝚂: v1.0.1 [ 𝙱𝙴𝚃𝙰 ]"""
-    SOURCE_TXT = """<b>Maintenance By:</b>
-    
-    <a href='https://github.com/kalanakt'>Hash Minner</a>
-    
+    START_TXT = """𝙷𝚎𝚕𝚕𝚘 {}, 𝙸'𝚊𝚖 <a href='https://t.me/Spaciousuniversebot'>𝙱𝚊𝚎 𝚂𝚞𝚣𝚢</a>
 
+𝙰 𝚂𝚒𝚖𝚙𝚕𝚎 𝙰𝚞𝚝𝚘 𝙵𝚒𝚕𝚝𝚎𝚛 + 𝙼𝚘𝚟𝚒𝚎 𝚂𝚎𝚊𝚛𝚌𝚑 + 𝙼𝚊𝚗𝚞𝚊𝚕 𝙵𝚒𝚕𝚝𝚎𝚛 + 𝙵𝚒𝚕𝚎 𝚂𝚝𝚘𝚛𝚎 𝙱𝚘𝚝.  
+𝙹𝚞𝚜𝚝 𝙰𝚍𝚍 𝙼𝚎 𝚃𝚘 𝚈𝚘𝚞𝚛 𝙶𝚛𝚘𝚞𝚙 𝙰𝚗𝚍 𝙴𝚗𝚓𝚘𝚢
 """
+    HELP_TXT = """𝙷𝚎𝚢 {}, 
+    𝚃𝚊𝚔𝚎 𝙰 𝙼𝚒𝚗𝚞𝚝𝚎 𝙰𝚗𝚍 𝚁𝚎𝚊𝚍 𝙲𝚊𝚛𝚎𝚏𝚞𝚕𝚕𝚢"""
+    ABOUT_TXT = """
+✯ 𝙼𝚢 𝙽𝚊𝚖𝚎 : <a href='https://t.me/SpaciousUniverseBot'>𝙱𝚊𝚎 𝚂𝚞𝚣𝚢</a>
+✯ 𝙻𝚒𝚋𝚛𝚊𝚛𝚢 : <a href='https://docs.pyrogram.org/'>𝙿𝚢𝚛𝚘𝚐𝚛𝚊𝚖 v𝟷.𝟸.𝟸𝟶</a>
+✯ 𝚂𝚎𝚛𝚟𝚎𝚛 : <a href='https://dashboard.heroku.com/'>𝙷𝚎𝚛𝚘𝚔𝚞</a>
+✯ 𝙻𝚊𝚗𝚐𝚞𝚊𝚐𝚎 : <a href='https://docs.python.org/3/'>𝙿𝚢𝚝𝚑𝚘𝚗 𝟹.𝟿.𝟿</a>
+✯ 𝙳𝚊𝚝𝚊𝙱𝚊𝚜𝚎 : <a href='https://mongodb.com/'>𝙼𝚘𝚗𝚐𝚘𝙳𝙱</a>
+✯ 𝙱𝚊𝚜𝚎 𝚂𝚘𝚞𝚛𝚌𝚎 𝙲𝚘𝚍𝚎 : <a href='https://github.com/EvamariaTG/EvaMaria'>𝙴𝚟𝚊 𝙼𝚊𝚛𝚒𝚊</a>
+✯ 𝚄𝚙𝚍𝚊𝚝𝚎 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 : <a href='https://t.me/TMWAD'>𝙲𝚕𝚒𝚌𝚔 𝙷𝚎𝚛𝚎</a>
+✯ 𝙼𝚊𝚒𝚗𝚝𝚎𝚗𝚊𝚗𝚌𝚎 : <a href='https://github.com/kalanakt'>𝙷𝚊𝚜𝚑𝙼𝚒𝚗𝚗𝚎𝚛</a>
+"""
+    
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
 - Filter is the feature were users can set automated replies for a particular keyword and suzy will respond whenever a keyword is found the message
@@ -70,10 +71,19 @@ class script(object):
 these are the extra features of suzy
 
 <b>Commands and Usage:</b>
-• /id - <code>get id of a specifed user.</code>
-• /info  - <code>get information about a user.</code>
 • /imdb  - <code>get the film information from IMDb source.</code>
 • /search  - <code>get the film information from various sources.</code>"""
+    ID_TXT = """Help: <b>Chat/User Id <b>
+   
+    
+    INFO_TXT ="""Help: <b>User Info<b>
+A Module To Fetch Telegram User Info
+   
+<b>Commands and Usage:</b>
+• /info  - <code>get information about a user.</code>"""
+    
+    
+    
     ADMIN_TXT = """Help: <b>Admin mods</b>
 
 <b>NOTE:</b>
