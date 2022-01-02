@@ -423,8 +423,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
             InlineKeyboardButton('🤖 Updates', url='https://t.me/TMWAD')
             ],[
-            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            InlineKeyboardButton('😊 About', callback_data='about')
+            InlineKeyboardButton('🛠️Tools', callback_data='help'),
+            InlineKeyboardButton('♻️About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -434,11 +434,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "help":
         buttons = [[
-            InlineKeyboardButton('Manual Filter', callback_data='manuelfilter'),
-            InlineKeyboardButton('Auto Filter', callback_data='autofilter')
+            InlineKeyboardButton('Manual', callback_data='manuelfilter'),
+            InlineKeyboardButton('Auto', callback_data='autofilter')
             ],[
             InlineKeyboardButton('Connection', callback_data='coct'),
-            InlineKeyboardButton('Extra Mods', callback_data='extra')
+            InlineKeyboardButton('Admin', callback_data='admin')
+            ],[
+            InlineKeyboardButton('🢪', callback_data='lftp'),
+            InlineKeyboardButton('Close', callback_data='cls'),
+            InlineKeyboardButton('🢫', callback_data='rigp')
             ],[
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔮 Status', callback_data='stats')
@@ -449,13 +453,57 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-    elif query.data == "about":
-        buttons= [[
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TMWAD'),
-            InlineKeyboardButton('👀 Maintainer', url='https://github.com/kalanakt')
+        
+    elif query.data == "lftp":
+        buttons = [[
+            InlineKeyboardButton('IMDb', callback_data='imdb'),
+            InlineKeyboardButton('Search', callback_data='search')
+            ],[
+            InlineKeyboardButton('ID', callback_data='id'),
+            InlineKeyboardButton('Info', callback_data='info')
+            ],[
+            InlineKeyboardButton('🢪', callback_data='rigp'),
+            InlineKeyboardButton('Close', callback_data='cls'),
+            InlineKeyboardButton('🢫', callback_data='help')
             ],[
             InlineKeyboardButton('🏠 Home', callback_data='start'),
-            InlineKeyboardButton('🔐 Close', callback_data='close_data')
+            InlineKeyboardButton('🔮 Status', callback_data='stats')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.HELP_TXT.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode='html'
+        ) 
+        
+     
+   elif query.data == "rigp":
+        buttons = [[
+            InlineKeyboardButton('Batch', callback_data='batch'),
+            InlineKeyboardButton('Genlink', callback_data='genlink')
+            ],[
+            InlineKeyboardButton('ID', callback_data='id'),
+            InlineKeyboardButton('Info', callback_data='info')
+            ],[
+            InlineKeyboardButton('🢪', callback_data='help'),
+            InlineKeyboardButton('Close', callback_data='cls'),
+            InlineKeyboardButton('🢫', callback_data='rigp')
+            ],[
+            InlineKeyboardButton('🏠 Home', callback_data='start'),
+            InlineKeyboardButton('🔮 Status', callback_data='stats')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.HELP_TXT.format(query.from_user.mention),
+            reply_markup=reply_markup,
+            parse_mode='html'
+        ) 
+   
+   
+    elif query.data == "about":
+        buttons= [[
+            InlineKeyboardButton('🏠 Home', callback_data='start'),
+            InlineKeyboardButton('🔐 Close', callback_data='cls')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -494,9 +542,62 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-    elif query.data == "coct":
+        
+    elif query.data == "id":
         buttons = [[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.ID_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "search":
+        buttons = [[
+            InlineKeyboardButton(' Back', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.SEARCH_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+        
+    elif query.data == "imdb":
+        buttons = [[
+            InlineKeyboardButton('Back', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.IMDB_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "genlink":
+        buttons = [[
+            InlineKeyboardButton(' Back', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.GENLINK_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "info":
+        buttons = [[
+            InlineKeyboardButton(' Back', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=script.INFO_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+    elif query.data == "coct":
+        buttons = [[
+            InlineKeyboardButton('Back', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -527,8 +628,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "stats":
         buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
-            InlineKeyboardButton('🚧 Close', callback_data='rfrsh')
+            InlineKeyboardButton(' Back', callback_data='help'),
+            InlineKeyboardButton(' Close', callback_data='cls')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         timeleft = dyno
@@ -544,7 +645,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-    elif query.data == "rfrsh":
+        
+    elif query.data == "cls":
         await query.message.delete()
         
     
