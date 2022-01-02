@@ -64,11 +64,11 @@ async def start(client, message):
                 caption = "" if not msg.caption else msg.caption.html
 
             try:
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html')
+                await msg.copy(chat_id=message.from_user.id, caption = caption)
                 await asyncio.sleep(0.5)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = 'html')
+                await msg.copy(chat_id=message.from_user.id, caption = caption)
             except:
                 pass
         return
