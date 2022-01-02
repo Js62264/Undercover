@@ -14,8 +14,11 @@ async def batch(bot:Client, update:Message):
  
     user_id = update.from_user.id 
  
-    post1:Message = await bot.ask(chat_id=update.chat.id, text="Please Forward The First Post From The Channel (Where I Am an admin)", timeout=360) 
+    post1:Message = await bot.ask(chat_id=update.chat.id, text="➭ Forward the First Message from Your Channel (with Quotes).. \n➭ Make Sure I'm Admin In that Channel \n➭ Send /cancel To Stop Procees", timeout=360) 
     if not post1: return 
+    
+    if post1.text == "/cancel":
+     return await message.reply_text('Cancelled Successfully...')
  
     if not post1.forward_from_chat: 
  
@@ -38,8 +41,11 @@ async def batch(bot:Client, update:Message):
         print(e) 
         return await update.reply_text("Something Went Wrong Please Try Again Later") 
  
-    post2 = await bot.ask(chat_id=update.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
+    post2 = await bot.ask(chat_id=update.chat.id, text="Now Forward The Last Message From The Same Channel Or Send \cancel to Stop Process", timeout=360) 
     if not post2 : return 
+   
+    if post2.text == "/cancel":
+     return await message.reply_text('Cancelled Successfully...')
  
     chat_id2 = post2.forward_from_chat.id 
     if not chat_id1==chat_id2 : 
@@ -77,7 +83,7 @@ async def batch(bot:Client, update:Message):
     base64_string = await encode(string)
     url = f"https://t.me/SpaciousUniverseBot?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={url}')]])
-    await update.reply_text(f"<b>Here is your link</b>\n\n{url}", reply_markup=reply_markup, disable_web_page_preview = True)
+    await update.reply_text(f"<b>➭ Here is your link : </b>\n\n{url}", reply_markup=reply_markup, disable_web_page_preview = True)
     
     
    
@@ -86,7 +92,7 @@ async def batch(bot:Client, update:Message):
 async def link_generator(client: Client, message: Message):
     req_message = await client.ask(text = "➭ Forward Any Post, File ,Video \n➭ Send /cancel To Stop Procees", chat_id = message.from_user.id, filters=((filters.all) & filters.private & filters.incoming))
     if req_message.text == "/cancel":
-        return await message.reply_text('Cancelled Successfully ✌')
+        return await message.reply_text('Cancelled Successfully...')
     try:
         post_message = await req_message.copy(chat_id = client.db_channel.id, disable_notification=True)
     except FloodWait as e:
@@ -103,4 +109,4 @@ async def link_generator(client: Client, message: Message):
 
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
 
-    await client.send_message(message.chat.id, text=f"<b>Here is your link</b>\n\n{link}", reply_markup=reply_markup, disable_web_page_preview = True)
+    await client.send_message(message.chat.id, text=f"<b>➭ Here is your link :</b>\n\n{link}", reply_markup=reply_markup, disable_web_page_preview = True)
