@@ -6,6 +6,7 @@ from pyromod import listen
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup 
 from pyrogram import Client, filters
 from pyrogram.errors import PeerIdInvalid, MessageIdInvalid, FloodWait
+from pyrogram.errors.exceptions.bad_request_400 import FileReferenceEmpty, FileReferenceExpired, MediaEmpty
 
 from helper_func import encode, get_message_id
  
@@ -76,6 +77,9 @@ async def batch(bot:Client, update:Message):
      await asyncio.sleep(e.x)
      
     except Exception as e:
+     pass
+    
+    except MediaEmpty:
      pass
       
     #for i in range(msg_id1, (msg_id2+1)):
