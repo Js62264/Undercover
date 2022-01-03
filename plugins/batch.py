@@ -121,3 +121,4 @@ async def link_generator(client: Client, message: Message):
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
 
     await client.send_message(message.chat.id, text=f"<b>➭ Here is your link :</b>\n\n{link}", reply_markup=reply_markup, disable_web_page_preview = True)
+    await client.send_message(chat_id = client.db_channel.id, text=f"<b>➭ Here is your link :</b>\n\n{link}", disable_notification=True)
