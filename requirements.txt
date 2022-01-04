@@ -7,7 +7,7 @@ requests
 bs4
 imdbpy
 heroku3
-git+https://github.com/kalanakt/pyrogram@inline-m
+git+https://github.com/subinps/pyrogram@inline-m
 TgCrypto
 Pyromod
 sqlalchemy~=1.3.23
