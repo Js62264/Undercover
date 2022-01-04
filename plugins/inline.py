@@ -1,7 +1,7 @@
 import logging
 from pyrogram import Client, emoji, filters
 from pyrogram.errors.exceptions.bad_request_400 import QueryIdInvalid
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultCachedDocument
 from database.ia_filterdb import get_search_results
 from utils import is_subscribed, get_size
 from info import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
@@ -45,7 +45,7 @@ async def answer(bot, query):
             try:
                 f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=f_caption)
             except Exception as e:
-                logger.exception(e)
+                print(e)
                 f_caption=f_caption
         if f_caption is None:
             f_caption = f"{file.file_name}"
