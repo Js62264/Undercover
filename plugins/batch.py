@@ -95,7 +95,7 @@ async def batch(bot:Client, update:Message):
     url = f"https://t.me/SpaciousUniverseBot?start={base64_string}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={url}')]])
     await update.reply_text(f"<b>➭ Here is your link : </b>\n\n{url}", reply_markup=reply_markup, disable_web_page_preview = True)
-    await client.send_message(chat_id = client.db_channel.id, text=f"<b>➭ Here is your link :</b>\n\n{link}", disable_notification=True)
+    await bot.send_message(chat_id = client.db_channel.id, text=f"<b>➭ Here is your link :</b>\n\n{url}", disable_notification=True)
     
     
    
