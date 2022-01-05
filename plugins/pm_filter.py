@@ -440,9 +440,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Connection', callback_data='coct'),
             InlineKeyboardButton('Admin', callback_data='admin')
             ],[
-            InlineKeyboardButton('⮨', callback_data='lftp'),
+            InlineKeyboardButton('《', callback_data='lftp'),
             InlineKeyboardButton('Close', callback_data='cls'),
-            InlineKeyboardButton('⮩', callback_data='rigp')
+            InlineKeyboardButton('》', callback_data='rigp')
             ],[
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔮 Status', callback_data='stats')
@@ -462,9 +462,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ID', callback_data='id'),
             InlineKeyboardButton('Info', callback_data='info')
             ],[
-            InlineKeyboardButton('⮨', callback_data='rigp'),
+            InlineKeyboardButton('《', callback_data='rigp'),
             InlineKeyboardButton('Close', callback_data='cls'),
-            InlineKeyboardButton('⮩', callback_data='help')
+            InlineKeyboardButton('》', callback_data='help')
             ],[
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔮 Status', callback_data='stats')
@@ -485,9 +485,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Spell Check', callback_data='spell'),
             InlineKeyboardButton('Info', callback_data='info')
             ],[
-            InlineKeyboardButton('⮨', callback_data='help'),
+            InlineKeyboardButton('《', callback_data='help'),
             InlineKeyboardButton('Close', callback_data='cls'),
-            InlineKeyboardButton('⮩', callback_data='lftp')
+            InlineKeyboardButton('》', callback_data='lftp')
             ],[
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔮 Status', callback_data='stats')
