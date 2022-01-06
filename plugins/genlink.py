@@ -40,20 +40,7 @@ async def gen_link_batch(bot:Client, message:Message):
         return 
  
     f_chat_id = post1.forward_from_chat.id 
-    try : 
  
-        f_msg_id = post1.forward_from_message_id 
-        await bot.get_messages( 
-            chat_id=f_chat_id, 
-            message_ids=f_msg_id 
-        ) 
-    except PeerIdInvalid: 
-        return await message.reply_text("Looks like Im Not A Member Of The Chat Where This Message Is Posted") 
-    except MessageIdInvalid: 
-        return await message.reply_text("Looks Like The Message You Forwarded No Longer Exists") 
-    except Exception as e: 
-        print(e) 
-        return await message.reply_text("Something Went Wrong Please Try Again Later") 
  
     post2 = await bot.ask(chat_id=message.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
     if not post2 : return 
@@ -66,23 +53,6 @@ async def gen_link_batch(bot:Client, message:Message):
     l_chat_id = post2.forward_from_chat.id 
     if not f_chat_id==l_chat_id : 
         return await message.reply_text("These Two Messages Arent From The Same Chat") 
- 
-    try : 
- 
-        l_msg_id = post2.forward_from_message_id 
-        await bot.get_messages( 
-            chat_id=l_chat_id, 
-            message_ids=l_msg_id 
-        ) 
-    except PeerIdInvalid: 
-        return await message.reply_text("Looks like Im Not A Member Of The Chat Where This Message Is Posted") 
-    except MessageIdInvalid: 
-        return await message.reply_text("Looks Like The Message You Forwarded No Longer Exists") 
-    except Exception as e: 
-        print(e) 
-        return await message.reply_text("Something Went Wrong Please Try Again Later")
-    
-    
     
     if f_chat_id != l_chat_id:
         return await message.reply("Chat ids not matched.")
