@@ -1,19 +1,18 @@
 import os
-
 import logging
 import random
 import asyncio
 from Script import script
-from pyrogram import Client, filters, __version__
+from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired
-from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from database.ia_filterdb import Media, get_file_details
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
-from info import CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, PICS, CUSTOM_CAPTION
+from info import CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, PICS
 from utils import get_size, is_subscribed, temp
-from helper_func import subscribed, encode, decode, get_messages
-
+import re
+import json
+import base64
 logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
@@ -40,57 +39,6 @@ async def start(client, message):
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
-    
-    text = message.text
-    if len(text)>7:
-        try:
-            base64_string = text.split(" ", 1)[1]
-        except:
-            return
-        string = await decode(base64_string)
-        argument = string.split("-")
-        if len(argument) == 3:
-            try:
-                start = int(int(argument[1]) / abs(client.db_channel.id))
-                end = int(int(argument[2]) / abs(client.db_channel.id))
-            except:
-                return
-            if start <= end:
-                ids = range(start,end+1)
-            else:
-                ids = []
-                i = start
-                while True:
-                    ids.append(i)
-                    i -= 1
-                    if i < end:
-                        break
-        elif len(argument) == 2:
-            try:
-                ids = [int(int(argument[1]) / abs(client.db_channel.id))]
-            except:
-                return
-        temp_msg = await message.reply("Please wait...")
-        try:
-            messages = await get_messages(client, ids)
-        except:
-            await message.reply_text("Something went wrong..!")
-            return
-        await temp_msg.delete()
-
-        for msg in messages:
-
-            try:
-                await msg.copy(chat_id=message.from_user.id)
-                await asyncio.sleep(0.5)
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id)
-            except:
-                pass
-        return
-    
-    
     if len(message.command) != 2:
         buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
@@ -98,8 +46,8 @@ async def start(client, message):
             InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
             InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
             ],[
-            InlineKeyboardButton('🛠️ Tools', callback_data='help'),
-            InlineKeyboardButton('♻️ About', callback_data='about')
+            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
+            InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -139,8 +87,8 @@ async def start(client, message):
             InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
             InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
             ],[
-            InlineKeyboardButton('🛠️ Tools', callback_data='help'),
-            InlineKeyboardButton('♻️ About', callback_data='about')
+            InlineKeyboardButton('ℹ️ Help', callback_data='help'),
+            InlineKeyboardButton('😊 About', callback_data='about')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
