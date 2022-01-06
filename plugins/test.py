@@ -39,7 +39,7 @@ async def gen_link_batch(bot, message):
         print(e) 
         return await message.reply_text("Something Went Wrong Please Try Again Later") 
  
-    post2 = await bot.ask(chat_id=update.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
+    post2 = await bot.ask(chat_id=message.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
     if not post2 :
       return 
  
@@ -55,12 +55,12 @@ async def gen_link_batch(bot, message):
             message_ids=l_msg_id 
         ) 
     except PeerIdInvalid: 
-        return await update.reply_text("Looks like Im Not A Member Of The Chat Where This Message Is Posted") 
+        return await message.reply_text("Looks like Im Not A Member Of The Chat Where This Message Is Posted") 
     except MessageIdInvalid: 
-        return await update.reply_text("Looks Like The Message You Forwarded No Longer Exists") 
+        return await message.reply_text("Looks Like The Message You Forwarded No Longer Exists") 
     except Exception as e: 
         print(e) 
-        return await update.reply_text("Something Went Wrong Please Try Again Later") 
+        return await message.reply_text("Something Went Wrong Please Try Again Later") 
     
     if f_chat_id != l_chat_id:
         return await message.reply("Chat ids not matched.")
