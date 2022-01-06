@@ -15,7 +15,7 @@ logger.setLevel(logging.INFO)
 
     
 @Client.on_message(filters.command('tbatch') & filters.user(ADMINS))
-async def gen_link_batch(bot, message):
+async def gen_link_batch(bot:Client, message:Message):
     user_id = message.from_user.id 
     post1:Message = await bot.ask(chat_id=message.chat.id, text="Please Forward The First Post From The Channel (Where I Am an admin)", timeout=360) 
     if not post1:
@@ -26,7 +26,7 @@ async def gen_link_batch(bot, message):
     
     f_chat_id = post1.forward_from_chat.id 
     try :
-      msg_id1 = post1.forward_from_message_id
+      f_msg_id = post1.forward_from_message_id
       await bot.get_messages( 
             chat_id=f_chat_id, 
             message_ids=f_msg_id
@@ -47,8 +47,7 @@ async def gen_link_batch(bot, message):
     if not f_chat_id==l_chat_id : 
         return await message.reply_text("These Two Messages Arent From The Same Chat") 
  
-    try : 
- 
+    try :
         l_msg_id = post2.forward_from_message_id 
         await bot.get_messages( 
             chat_id=l_chat_id, 
