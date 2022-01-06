@@ -44,12 +44,10 @@ async def gen_link_batch(bot:Client, message:Message):
     
     try:
         chat_id = (await bot.get_chat(f_chat_id)).id
-    except (ChannelInvalid, PeerIdInvalid):
-        return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
-    except (UsernameInvalid, UsernameNotModified):
-        return await message.reply('Invalid Link specified.')
+    except ChannelInvalid:
+        return await message.reply('<b>This may be a private channel / group. Make me an admin over there to index the files.</b>')
     except Exception as e:
-        return await message.reply(f'Errors - {e}')
+        return await message.reply(f'<b>This may be a private channel / group. Make me an admin over there to index the files.</b>\n\nErrors - {e}')
  
 
  
@@ -70,12 +68,10 @@ async def gen_link_batch(bot:Client, message:Message):
     
     try:
         chat_id = (await bot.get_chat(l_chat_id)).id
-    except (ChannelInvalid, PeerIdInvalid):
-        return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
-    except (UsernameInvalid, UsernameNotModified):
-        return await message.reply('Invalid Link specified.')
+    except ChannelInvalid:
+        return await message.reply('<b>This may be a private channel / group. Make me an admin over there to index the files.</b>')
     except Exception as e:
-        return await message.reply(f'Errors - {e}')
+        return await message.reply(f'<b>This may be a private channel / group. Make me an admin over there to index the files.</b>\n\nErrors - {e}')
 
     sts = await message.reply("Generating link for your message.\nThis may take time depending upon number of messages")
     if chat_id in FILE_STORE_CHANNEL:
