@@ -1,6 +1,5 @@
 import re
 from pyrogram import filters, Client
-from pyromod import listen 
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup 
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
 from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL
