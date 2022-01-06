@@ -28,7 +28,7 @@ async def gen_link_s(bot, message):
     
 @Client.on_message(filters.command('tbatch') & filters.user(ADMINS))
 async def batch(bot:Client, message:Message):
-    user_id = update.from_user.id
+    user_id = message.from_user.id
     post1:Message = await bot.ask(chat_id=message.chat.id, text="Please Forward The First Post From The Channel (Where I Am an admin)", timeout=360) 
     if not post1: return 
  
