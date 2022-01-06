@@ -58,6 +58,11 @@ async def gen_link_batch(bot:Client, message:Message):
     post2 = await bot.ask(chat_id=message.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
     if not post2 : return 
  
+    if not post1.forward_from_chat: 
+ 
+        await message.reply_text("Please Forward The Message With Quotes (ie : Forwarded From ...)") 
+        return
+    
     l_chat_id = post2.forward_from_chat.id 
     if not f_chat_id==l_chat_id : 
         return await message.reply_text("These Two Messages Arent From The Same Chat") 
