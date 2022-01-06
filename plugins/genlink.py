@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-@Client.on_message(filters.command(['genlink','link']) & filters.user(ADMINS))
+@Client.on_message('link']) & filters.user(ADMINS))
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
     if not replied:
@@ -38,29 +38,12 @@ async def gen_link_batch(bot:Client, message:Message):
       return
     
     f_chat_id = post1.forward_from_chat.id 
-    try:
-        chat_id = (await bot.get_chat(f_chat_id)).id
-    except ChannelInvalid:
-        return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
-    except MessageIdInvalid:
-        return await message.reply('Looks Like The Message You Forwarded No Longer Exists')
-    except Exception as e:
-        return await message.reply(f'Errors - {e}') 
  
     post2 = await bot.ask(chat_id=message.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
     if not post2 :
       return 
  
-    l_chat_id = post2.forward_from_chat.id 
- 
-    try:
-        chat_id = (await bot.get_chat(l_chat_id)).id
-    except ChannelInvalid:
-        return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
-    except MessageIdInvalid:
-        return await message.reply('Looks Like The Message You Forwarded No Longer Exists')
-    except Exception as e:
-        return await message.reply(f'Errors - {e}') 
+    l_chat_id = post2.forward_from_chat
     
     if not f_chat_id==l_chat_id : 
         return await message.reply_text("These Two Messages Arent From The Same Chat") 
