@@ -119,13 +119,14 @@ async def batch(bot:Client, update:Message):
        og_msg +=1
        outlist.append(file)
       
+     except:
+      pass
+     if not og_msg % 20:
+      try:
+      await sts.edit(FRMT.format(total=diff, current=tot, rem=(diff - tot), sts="Saving Messages"))
+      
       except:
        pass
-      if not og_msg % 20:
-       try:
-        await sts.edit(FRMT.format(total=diff, current=tot, rem=(diff - tot), sts="Saving Messages"))
-       except:
-        pass
       
      
      
