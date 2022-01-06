@@ -29,7 +29,7 @@ async def gen_link_s(bot, message):
 @Client.on_message(filters.command('tbatch') & filters.user(ADMINS))
 async def batch(bot:Client, message:Message):
     user_id = update.from_user.id
-    post1:Message = await bot.ask(chat_id=update.chat.id, text="Please Forward The First Post From The Channel (Where I Am an admin)", timeout=360) 
+    post1:Message = await bot.ask(chat_id=message.chat.id, text="Please Forward The First Post From The Channel (Where I Am an admin)", timeout=360) 
     if not post1: return 
  
     if not post1.forward_from_chat:
@@ -53,12 +53,12 @@ async def batch(bot:Client, message:Message):
         print(e) 
         return await message.reply_text("Something Went Wrong Please Try Again Later") 
  
-    post2 = await bot.ask(chat_id=update.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
+    post2 = await bot.ask(chat_id=message.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
     if not post2 : return 
  
     l_chat_id = post2.forward_from_chat.id 
     if not f_chat_id==l_chat_id: 
-        return await update.reply_text("These Two Messages Arent From The Same Chat") 
+        return await message.reply_text("These Two Messages Arent From The Same Chat") 
  
     try : 
  
@@ -68,12 +68,12 @@ async def batch(bot:Client, message:Message):
             message_ids=l_msg_id 
         ) 
     except PeerIdInvalid: 
-        return await update.reply_text("Looks like Im Not A Member Of The Chat Where This Message Is Posted") 
+        return await message.reply_text("Looks like Im Not A Member Of The Chat Where This Message Is Posted") 
     except MessageIdInvalid: 
-        return await update.reply_text("Looks Like The Message You Forwarded No Longer Exists") 
+        return await message.reply_text("Looks Like The Message You Forwarded No Longer Exists") 
     except Exception as e: 
         print(e) 
-        return await update.reply_text("Something Went Wrong Please Try Again Later")
+        return await message.reply_text("Something Went Wrong Please Try Again Later")
 
     if f_chat_id != l_chat_id:
         return await message.reply("Chat ids not matched.")
