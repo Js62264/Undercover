@@ -43,7 +43,7 @@ async def gen_link_batch(bot:Client, message:Message):
     if not post2 :
       return 
  
-    l_chat_id = post2.forward_from_chat
+    l_chat_id = post2.forward_from_chat.id
     
     if not f_chat_id==l_chat_id : 
         return await message.reply_text("These Two Messages Arent From The Same Chat") 
