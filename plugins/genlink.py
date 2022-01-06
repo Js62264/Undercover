@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-@Client.on_message('link') & filters.user(ADMINS))
+@Client.on_message(('link') & filters.user(ADMINS))
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
     if not replied:
