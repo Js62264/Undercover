@@ -40,6 +40,7 @@ async def gen_link_batch(bot:Client, message:Message):
         return 
  
     f_chat_id = post1.forward_from_chat.id 
+    f_msg_id = post1.forward_from_message_id
  
  
     post2 = await bot.ask(chat_id=message.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
@@ -51,6 +52,9 @@ async def gen_link_batch(bot:Client, message:Message):
         return
     
     l_chat_id = post2.forward_from_chat.id 
+    l_msg_id = post2.forward_from_message_id
+    
+    
     if not f_chat_id==l_chat_id : 
         return await message.reply_text("These Two Messages Arent From The Same Chat") 
     
