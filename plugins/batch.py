@@ -127,15 +127,12 @@ async def batch(bot:Client, update:Message):
       
       except:
        pass
-      
-     
-     
     with open(f"batchmode_{message.from_user.id}.json", "w+") as out:
      json.dump(outlist, out)
     post = await bot.send_document(LOG_CHANNEL, f"batchmode_{message.from_user.id}.json", file_name="Batch.json", caption="⚠️Generated for filestore.")
     os.remove(f"batchmode_{message.from_user.id}.json")
     file_id, ref = unpack_new_file_id(post.document.file_id)
-    await sts.edit(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{temp.U_NAME}?start=BATCH-{file_id}")
+    await bot.send_message(f"Here is your link\nContains `{og_msg}` files.\n https://t.me/{temp.U_NAME}?start=BATCH-{file_id}")
     
     
     
