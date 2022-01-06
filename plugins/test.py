@@ -2,6 +2,7 @@ import re
 from pyrogram import filters, Client
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, UsernameInvalid, UsernameNotModified
 from info import ADMINS, LOG_CHANNEL, FILE_STORE_CHANNEL
+from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup 
 from database.ia_filterdb import unpack_new_file_id
 from utils import temp
 import re
