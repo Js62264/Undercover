@@ -38,52 +38,33 @@ async def gen_link_batch(bot:Client, message:Message):
       return
     
     f_chat_id = post1.forward_from_chat.id 
-    try :
-      f_msg_id = post1.forward_from_message_id
-      await bot.get_messages( 
-            chat_id=f_chat_id, 
-            message_ids=f_msg_id
-        ) 
-    except PeerIdInvalid: 
-        return await message.reply_text("Looks like Im Not A Member Of The Chat Where This Message Is Posted") 
-    except MessageIdInvalid: 
-        return await message.reply_text("Looks Like The Message You Forwarded No Longer Exists") 
-    except Exception as e: 
-        print(e) 
-        return await message.reply_text("Something Went Wrong Please Try Again Later") 
+    try:
+        chat_id = (await bot.get_chat(f_chat_id)).id
+    except ChannelInvalid:
+        return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
+    except MessageIdInvalid:
+        return await message.reply('Looks Like The Message You Forwarded No Longer Exists')
+    except Exception as e:
+        return await message.reply(f'Errors - {e}') 
  
     post2 = await bot.ask(chat_id=message.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
     if not post2 :
       return 
  
     l_chat_id = post2.forward_from_chat.id 
-    if not f_chat_id==l_chat_id : 
-        return await message.reply_text("These Two Messages Arent From The Same Chat") 
  
-    try :
-        l_msg_id = post2.forward_from_message_id 
-        await bot.get_messages( 
-            chat_id=l_chat_id, 
-            message_ids=l_msg_id 
-        ) 
-    except PeerIdInvalid: 
-        return await message.reply_text("Looks like Im Not A Member Of The Chat Where This Message Is Posted") 
-    except MessageIdInvalid: 
-        return await message.reply_text("Looks Like The Message You Forwarded No Longer Exists") 
-    except Exception as e: 
-        print(e) 
-        return await message.reply_text("Something Went Wrong Please Try Again Later") 
-    
-    if f_chat_id != l_chat_id:
-        return await message.reply("Chat ids not matched.")
     try:
-        chat_id = (await bot.get_chat(f_chat_id)).id
+        chat_id = (await bot.get_chat(l_chat_id)).id
     except ChannelInvalid:
         return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
-    except (UsernameInvalid, UsernameNotModified):
-        return await message.reply('Invalid Link specified.')
+    except MessageIdInvalid:
+        return await message.reply('Looks Like The Message You Forwarded No Longer Exists')
     except Exception as e:
-        return await message.reply(f'Errors - {e}')
+        return await message.reply(f'Errors - {e}') 
+    
+    if not f_chat_id==l_chat_id : 
+        return await message.reply_text("These Two Messages Arent From The Same Chat") 
+   
 
     sts = await message.reply("Generating link for your message.\nThis may take time depending upon number of messages")
     if chat_id in FILE_STORE_CHANNEL:
