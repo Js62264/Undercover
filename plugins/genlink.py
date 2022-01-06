@@ -41,7 +41,17 @@ async def gen_link_batch(bot:Client, message:Message):
  
     f_chat_id = post1.forward_from_chat.id 
     f_msg_id = post1.forward_from_message_id
+    
+    try:
+        chat_id = (await bot.get_chat(f_chat_id)).id
+    except ChannelInvalid:
+        return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
+    except (UsernameInvalid, UsernameNotModified):
+        return await message.reply('Invalid Link specified.')
+    except Exception as e:
+        return await message.reply(f'Errors - {e}')
  
+
  
     post2 = await bot.ask(chat_id=message.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
     if not post2 : return 
@@ -58,10 +68,8 @@ async def gen_link_batch(bot:Client, message:Message):
     if not f_chat_id==l_chat_id : 
         return await message.reply_text("These Two Messages Arent From The Same Chat") 
     
-    if f_chat_id != l_chat_id:
-        return await message.reply("Chat ids not matched.")
     try:
-        chat_id = (await bot.get_chat(f_chat_id)).id
+        chat_id = (await bot.get_chat(l_chat_id)).id
     except ChannelInvalid:
         return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
     except (UsernameInvalid, UsernameNotModified):
