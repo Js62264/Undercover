@@ -10,7 +10,7 @@ from pyrogram.errors.exceptions.bad_request_400 import FileReferenceEmpty, FileR
 
 from helper_func import encode, get_message_id
  
-@Client.on_message(filters.command("batch") & filters.private & ~filters.bot, group=3) 
+@Client.on_message(filters.command("newbatch") & filters.private & ~filters.bot, group=3) 
 async def batch(bot:Client, update:Message): 
  
     user_id = update.from_user.id 
@@ -100,7 +100,7 @@ async def batch(bot:Client, update:Message):
     
    
  
-@Client.on_message(filters.private & filters.command('genlink'))
+@Client.on_message(filters.private & filters.command('asgenlink'))
 async def link_generator(client: Client, message: Message):
     req_message = await client.ask(text = "➭ Forward Any Post, File ,Video \n➭ Send /cancel To Stop Procees", chat_id = message.from_user.id, filters=((filters.all) & filters.private & filters.incoming))
     if req_message.text == "/cancel":
