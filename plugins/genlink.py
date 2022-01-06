@@ -13,7 +13,7 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-@Client.on_message(filters.command('chlink') & filters.user(ADMINS))
+@Client.on_message(filters.command('dontlink') & filters.user(ADMINS))
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
     if not replied:
@@ -25,7 +25,7 @@ async def gen_link_s(bot, message):
     await message.reply(f"Here is your Link:\nhttps://t.me/{temp.U_NAME}?start={file_id}")
     
     
-@Client.on_message(filters.command('chbatch') & filters.user(ADMINS))
+@Client.on_message(filters.command('batch') & filters.user(ADMINS))
 async def gen_link_batch(bot, message):
     if " " not in message.text:
         return await message.reply("Use correct format.\nExample <code>/batch https://t.me/TeamEvamaria/10 https://t.me/TeamEvamaria/20</code>.")
