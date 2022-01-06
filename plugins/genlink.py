@@ -31,7 +31,7 @@ async def gen_link_s(bot, message):
 async def gen_link_batch(bot:Client, message:Message):
     
     user_id = message.from_user.id
-    post1:Message = await bot.ask(chat_id=message.chat.id, text="➭ Forward the First Message from Your Channel (with Quotes).. \n➭ Make Sure I'm Admin In that Channel", timeout=360) 
+    post1:Message = await bot.ask(chat_id=message.chat.id, text="Forward the First Message from Your Channel (with Quotes).. ", timeout=360) 
     if not post1: return
     
     if not post1.forward_from_chat: 
