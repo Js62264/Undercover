@@ -44,7 +44,7 @@ async def gen_link_batch(bot:Client, message:Message):
     
     try:
         chat_id = (await bot.get_chat(f_chat_id)).id
-    except ChannelInvalid:
+    except (ChannelInvalid, PeerIdInvalid):
         return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
     except (UsernameInvalid, UsernameNotModified):
         return await message.reply('Invalid Link specified.')
@@ -70,7 +70,7 @@ async def gen_link_batch(bot:Client, message:Message):
     
     try:
         chat_id = (await bot.get_chat(l_chat_id)).id
-    except ChannelInvalid:
+    except (ChannelInvalid, PeerIdInvalid):
         return await message.reply('This may be a private channel / group. Make me an admin over there to index the files.')
     except (UsernameInvalid, UsernameNotModified):
         return await message.reply('Invalid Link specified.')
