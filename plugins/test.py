@@ -24,7 +24,9 @@ async def gen_link_s(bot, message):
     if file_type not in ["video", 'audio', 'document']:
         return await message.reply("Reply to a supported media")
     file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
-    await message.reply(f"Here is your Link:\nhttps://t.me/{temp.U_NAME}?start={file_id}")
+    link = f"https://t.me/{temp.U_NAME}?start={file_id}"
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
+    await bot.send_message(f"<b>Here is your link:</b>\n\n{link}", quote=True, reply_markup=reply_markup)
     
     
 @Client.on_message(filters.command('batch') & filters.user(ADMINS))
@@ -90,9 +92,8 @@ async def gen_link_batch(bot:Client, message:Message):
         string = f"{f_msg_id}_{l_msg_id}_{chat_id}"
         b_64 = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
         link = f"https://t.me/{temp.U_NAME}?start=DSTORE-{b_64}"
-        link = f"https://t.me/{temp.U_NAME}?start=BATCH-{file_id}"
         reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
-        await sts.edit(f"<b>Here is your link :</b>\n\n{link}", quote=True, reply_markup=reply_markup)
+        await bot.send_message(f"<b>Here is your link :</b>\n\n{link}", quote=True, reply_markup=reply_markup)
 
     msgs_list = []
     c_msg = f_msg_id
@@ -158,4 +159,4 @@ async def gen_link_batch(bot:Client, message:Message):
     file_id, ref = unpack_new_file_id(post.document.file_id)
     link = f"https://t.me/{temp.U_NAME}?start=BATCH-{file_id}"
     reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🔁 Share URL", url=f'https://telegram.me/share/url?url={link}')]])
-    await sts.edit(f"<b>Here is your link For `{og_msg}` files:</b>\n\n{link}", quote=True, reply_markup=reply_markup)
+    await bot.send_message(f"<b>Here is your link For `{og_msg}` files:</b>\n\n{link}", quote=True, reply_markup=reply_markup)
