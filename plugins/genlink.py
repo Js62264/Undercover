@@ -28,7 +28,7 @@ async def gen_link_s(bot, message):
 @Client.on_message(filters.command('batch') & filters.user(ADMINS))
 async def gen_link_batch(bot, message):
     if " " not in message.text:
-        return await message.reply("Use correct format.\nExample <code>/batch https://t.me/TeamEvamaria/10 https://t.me/TeamEvamaria/20</code>.")
+        return await message.reply("➭ Use correct format.\n\n<b>➭ Example : Public Channel</b>\n<code>/batch https://t.me/TMWAD/10 https://t.me/TMWAD/20</code>. \n\n<b>➭ Example : Privat Channel</b>\nFirst Add @SpaciousUniverseBot as admin, To That Channel \n<code>/batch https://t.me/c/1723657616/10 https://t.me/c/1723657616/20</code>.")
     links = message.text.strip().split(" ")
     if len(links) != 3:
         return await message.reply("Use correct format.\nExample <code>/batch https://t.me/TeamEvamaria/10 https://t.me/TeamEvamaria/20</code>.")
