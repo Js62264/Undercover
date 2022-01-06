@@ -27,10 +27,11 @@ async def gen_link_s(bot, message):
     
     
 @Client.on_message(filters.command('tbatch') & filters.user(ADMINS))
-async def batch(bot:Client, message:Message):
+async def ghi_batch(bot:Client, message:Message):
     user_id = message.from_user.id
     post1:Message = await bot.ask(chat_id=message.chat.id, text="Please Forward The First Post From The Channel (Where I Am an admin)", timeout=360) 
-    if not post1: return 
+    if not post1:
+        return 
  
     if not post1.forward_from_chat:
         await message.reply_text("Please Forward The Message With Quotes (ie : Forwarded From ...)") 
@@ -54,7 +55,8 @@ async def batch(bot:Client, message:Message):
         return await message.reply_text("Something Went Wrong Please Try Again Later") 
  
     post2 = await bot.ask(chat_id=message.chat.id, text="Now Forward The Last Message From The Same Channel", timeout=360) 
-    if not post2 : return 
+    if not post2 :
+        return 
  
     l_chat_id = post2.forward_from_chat.id 
     if not f_chat_id==l_chat_id: 
