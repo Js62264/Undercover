@@ -14,7 +14,7 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-@Client.on_message(filters.command('link') & filters.user(ADMINS)& filters.private)
+@Client.on_message(filters.command('link') & filters.private)
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
     if not replied:
@@ -26,7 +26,7 @@ async def gen_link_s(bot, message):
     await message.reply(f"Here is your Link:\nhttps://t.me/{temp.U_NAME}?start={file_id}", disable_web_page_preview=True)
     
     
-@Client.on_message(filters.command('batch') & filters.user(ADMINS)& filters.private & ~filters.bot)
+@Client.on_message(filters.command('batch') & filters.private & ~filters.bot)
 async def gen_link_batch(bot:Client, message:Message):
     
     user_id = message.from_user.id
