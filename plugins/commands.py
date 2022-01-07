@@ -4,11 +4,11 @@ import random
 import asyncio
 from Script import script
 from pyrogram import Client, filters
-from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired
+from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
-from info import CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, LOG_CHANNEL, PICS, CUSTOM_CAPTION
+from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION
 from utils import get_size, is_subscribed, temp
 import re
 import json
@@ -22,7 +22,7 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('🤖 Updates', url='http://t.me/TMWAD')
+                InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
             ],
             [
                 InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
@@ -44,7 +44,7 @@ async def start(client, message):
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
             InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='http://t.me/TMWAD')
+            InlineKeyboardButton('🤖 Updates', url='https://t.me/TMWAD')
             ],[
             InlineKeyboardButton('🛠️ Tools', callback_data='help'),
             InlineKeyboardButton('♻️ About', callback_data='about')
@@ -85,7 +85,7 @@ async def start(client, message):
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
             InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='http://t.me/TMWAD')
+            InlineKeyboardButton('🤖 Updates', url='https://t.me/TMWAD')
             ],[
             InlineKeyboardButton('🛠️ Tools', callback_data='help'),
             InlineKeyboardButton('♻️ About', callback_data='about')
@@ -117,19 +117,32 @@ async def start(client, message):
             title = msg.get("title")
             size=get_size(int(msg.get("size", 0)))
             f_caption=msg.get("caption", "")
-            if CUSTOM_CAPTION:
+            if BATCH_FILE_CAPTION:
                 try:
-                    f_caption=CUSTOM_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+                    f_caption=BATCH_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
                 except Exception as e:
                     logger.exception(e)
                     f_caption=f_caption
             if f_caption is None:
                 f_caption = f"{title}"
-            await client.send_cached_media(
-                chat_id=message.from_user.id,
-                file_id=msg.get("file_id"),
-                caption=f_caption,
-                )
+            try:
+                await client.send_cached_media(
+                    chat_id=message.from_user.id,
+                    file_id=msg.get("file_id"),
+                    caption=f_caption,
+                    )
+            except FloodWait as e:
+                await asyncio.sleep(e.x)
+                logger.warning(f"Floodwait of {e.x} sec.")
+                await client.send_cached_media(
+                    chat_id=message.from_user.id,
+                    file_id=msg.get("file_id"),
+                    caption=f_caption,
+                    )
+            except Exception as e:
+                logger.warning(e, exc_info=True)
+                continue
+            await asyncio.sleep(1) 
         await sts.delete()
         return
     elif file_id.split("-", 1)[0] == "DSTORE":
@@ -141,9 +154,13 @@ async def start(client, message):
         for msg in msgs_list:
             try:
                 await client.copy_message(chat_id=message.chat.id, from_chat_id=int(f_chat_id), message_id=msg)
+            except FloodWait as e:
+                await asyncio.sleep(e.x)
+                await client.copy_message(chat_id=message.chat.id, from_chat_id=int(f_chat_id), message_id=msg)
             except Exception as e:
                 logger.exception(e)
-                pass  
+                continue
+            await asyncio.sleep(1) 
         return await sts.delete()
 
     files_ = await get_file_details(file_id)           
@@ -158,9 +175,9 @@ async def start(client, message):
             title = file.file_name
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
-            if CUSTOM_CAPTION:
+            if CUSTOM_FILE_CAPTION:
                 try:
-                    f_caption=CUSTOM_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
+                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
                 except:
                     return
             await msg.edit_caption(f_caption)
@@ -172,9 +189,9 @@ async def start(client, message):
     title = files.file_name
     size=get_size(files.file_size)
     f_caption=files.caption
-    if CUSTOM_CAPTION:
+    if CUSTOM_FILE_CAPTION:
         try:
-            f_caption=CUSTOM_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
         except Exception as e:
             logger.exception(e)
             f_caption=f_caption
