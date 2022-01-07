@@ -480,7 +480,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "rigp":
         buttons = [[
             InlineKeyboardButton('Batch', callback_data='batch'),
-            InlineKeyboardButton('Genlink', callback_data='genlink')
+            InlineKeyboardButton('link', callback_data='genlink')
             ],[
             InlineKeyboardButton('Spell Check', callback_data='spell'),
             InlineKeyboardButton('Info', callback_data='info')
