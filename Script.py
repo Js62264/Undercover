@@ -110,7 +110,7 @@ A Module To Fetch Telegram User Info
 A Module To Genarte Link To post
    
 <b>Commands and Usage:</b>
-• /genlink  - <code>Foewad First And Last Messeages And Get Link</code>"""
+• /link  - <code>Send As reply</code>"""
 
 
     BATCH_TXT ="""Help: <b>Batch Link<b>
