@@ -158,7 +158,7 @@ async def start(client, message):
             title = file.file_name
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
-            if CUSTOM_FILE_CAPTION:
+            if FILE_CAPTION:
                 try:
                     f_caption=FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
                 except:
