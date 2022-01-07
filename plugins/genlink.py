@@ -18,9 +18,9 @@ logger.setLevel(logging.INFO)
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
     if not replied:
-        return await message.reply('Reply to a message to get a sharable link.')
+        return await message.reply('Reply to a post, to get a sharable link.')
     file_type = replied.media
-    if file_type not in ["video", 'audio', 'document']:
+    if file_type not in ["video", 'audio', 'document','photo']:
         return await message.reply("Reply to a supported media")
     file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
     await message.reply(f"Here is your Link:\nhttps://t.me/{temp.U_NAME}?start={file_id}", disable_web_page_preview=True)
