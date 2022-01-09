@@ -512,7 +512,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
       
       
-   elif query.data == "money_heist_E":
+    elif query.data == "money_heist_E":
         buttons= [
            [
               InlineKeyboardButton('480p', callback_data='money_heist_E_480p'),
@@ -530,7 +530,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
          
          
-   elif query.data == "money_heist_E_480p":
+    elif query.data == "money_heist_E_480p":
         buttons= [
            [
             InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADpAQAAl3T4FYpYkX1xeLM1xYE'),
@@ -554,7 +554,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-   elif query.data == "money_heist_E_720p":
+    elif query.data == "money_heist_E_720p":
         buttons= [
            [
             InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADqgQAAl3T4FZSwZdE3f5t_RYE'),
@@ -578,7 +578,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-   elif query.data == "money_heist_E_1080p":
+    elif query.data == "money_heist_E_1080p":
         buttons= [
            [
             InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADsAQAAl3T4FbYzM9x7NsV8xYE'),
@@ -602,7 +602,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-   elif query.data == "money_heist_S":
+    elif query.data == "money_heist_S":
         buttons= [[
             InlineKeyboardButton('480p', callback_data='money_heist_S_480p'),
             InlineKeyboardButton('720p', callback_data='money_heist_E_720p'),
@@ -614,7 +614,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-   elif query.data == "money_heist_S_480p":
+    elif query.data == "money_heist_S_480p":
         buttons= [
            [
             InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=DSTORE-OV85Xy0xMDAxNjE1MDA4MDgz'),
@@ -638,7 +638,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-   elif query.data == "money_heist_H":
+    elif query.data == "money_heist_H":
         buttons= [[
             InlineKeyboardButton('480p', callback_data='money_heist_E_480p'),
             InlineKeyboardButton('720p', callback_data='money_heist_E_720p'),
@@ -650,7 +650,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-   elif query.data == "money_heist_H_480p":
+    elif query.data == "money_heist_H_480p":
         buttons= [
            [
             InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADtwQAAl3T4FaiQnIAAUQ8Z74WBA'),
@@ -674,7 +674,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-   elif query.data == "money_heist_H_720p":
+    elif query.data == "money_heist_H_720p":
         buttons= [
            [
             InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADvAQAAl3T4FataDJzQy1lZhYE'),
@@ -698,7 +698,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-   elif query.data == "money_heist_H_1080p":
+    elif query.data == "money_heist_H_1080p":
         buttons= [
            [
             InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADwgQAAl3T4FZJ-EDog8EBchYE'),
@@ -722,7 +722,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-   elif query.data == "money_heist_Te":
+    elif query.data == "money_heist_Te":
         buttons= [[
             InlineKeyboardButton('720p', callback_data='money_heist_H_720p'),
             InlineKeyboardButton('1080p', callback_data='money_heist_H_1080p')
@@ -734,7 +734,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode='html'
         )
          
-   elif query.data == "money_heist_Ta":
+    elif query.data == "money_heist_Ta":
         buttons= [[
             InlineKeyboardButton('720p', callback_data='money_heist_H_720p'),
             InlineKeyboardButton('1080p', callback_data='money_heist_H_1080p')
@@ -747,7 +747,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
          
    
-   elif query.data == "Maradona_E":
+    elif query.data == "Maradona_E":
         buttons= [[
             InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADcgYAAl3T2FbbHTYq9l3UVhYE'),
             InlineKeyboardButton('Close', callback_data='cls')
