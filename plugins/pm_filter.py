@@ -603,11 +603,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode='html'
         )
     elif query.data == "money_heist_S":
-        buttons= [[
-            InlineKeyboardButton('480p', callback_data='money_heist_S_480p'),
-            InlineKeyboardButton('720p', callback_data='money_heist_E_720p'),
-            InlineKeyboardButton('1080p', callback_data='money_heist_E_1080p')
-        ]]
+        buttons= [
+           [
+              InlineKeyboardButton('480p', callback_data='money_heist_S_480p'),
+              InlineKeyboardButton('720p', callback_data='money_heist_E_720p')
+           ],
+           [
+              InlineKeyboardButton('1080p', callback_data='money_heist_E_1080p')
+           ]
+        ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=quote.MONEY_HEIST_TXT_1,
@@ -639,11 +643,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode='html'
         )
     elif query.data == "money_heist_H":
-        buttons= [[
-            InlineKeyboardButton('480p', callback_data='money_heist_E_480p'),
-            InlineKeyboardButton('720p', callback_data='money_heist_E_720p'),
-            InlineKeyboardButton('1080p', callback_data='money_heist_E_1080p')
-        ]]
+        buttons= [
+           [
+              InlineKeyboardButton('480p', callback_data='money_heist_H_480p'),
+              InlineKeyboardButton('720p', callback_data='money_heist_H_720p')
+           ],
+           [
+              InlineKeyboardButton('1080p', callback_data='money_heist_H_1080p')
+           ]
+        ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=quote.MONEY_HEIST_TXT_1,
