@@ -46,6 +46,27 @@ async def give_filter(client,message):
             reply_markup=reply_markup,
             parse_mode='html'
          )
+    if name.lower() == 'money heist' or name.lower() == 'la casa de papel':
+         buttons = [
+            [
+                InlineKeyboardButton('English', callback_data='money_heist_E'),
+                InlineKeyboardButton('Spanish', callback_data='money_heist_S')
+            ],
+            [
+                InlineKeyboardButton('Hindi', callback_data='money_heist_H'),
+                InlineKeyboardButton('Telugu', callback_data='money_heist_Te')
+            ],
+            [
+                InlineKeyboardButton('Tamil', callback_data='money_heist_Ta')
+            ]
+         ]
+         reply_markup = InlineKeyboardMarkup(buttons)
+         await message.reply_photo(
+            photo=MONEY_HEIST_PIC,
+            caption=quote.MONEY_HEIST_TXT_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+         )
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)  
@@ -489,7 +510,236 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-    elif query.data == "Maradona_E":
+   elif query.data == "money_heist_E":
+        buttons= [[
+            InlineKeyboardButton('480p', callback_data='money_heist_E_480p'),
+            InlineKeyboardButton('720p', callback_data='money_heist_E_720p'),
+            InlineKeyboardButton('1080p', callback_data='money_heist_E_1080p')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.MONEY_HEIST_TXT_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+   elif query.data == "money_heist_E_480p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADpAQAAl3T4FYpYkX1xeLM1xYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADpQQAAl3T4FZC6fytqDmy4RYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADpgQAAl3T4FbZVZGYXr0vAxYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADpwQAAl3T4FaUG0krWJaSRxYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05-A', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADqAQAAl3T4FbgL57bctSXiRYE'),
+            InlineKeyboardButton('Season 05-B', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADqQQAAl3T4Fb6wBfPwSUBPRYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+   elif query.data == "money_heist_E_720p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADqgQAAl3T4FZSwZdE3f5t_RYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADqwQAAl3T4FbVIucr7FCSJhYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADrAQAAl3T4Fba0Y6imbKihxYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADrQQAAl3T4FY-zbRFnTFqdBYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05-A', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADrwQAAl3T4FaPaRYZhG1txhYE'),
+            InlineKeyboardButton('Season 05-B', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADrgQAAl3T4FYTG5e6yCvt7RYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+   elif query.data == "money_heist_E_1080p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADsAQAAl3T4FbYzM9x7NsV8xYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADsQQAAl3T4FZTKVKTVjAErhYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADsgQAAl3T4FZ1KUgquVDofxYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADswQAAl3T4FbYksLNcgrG2xYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05-A', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADtAQAAl3T4FYK09-mn2Do2BYE'),
+            InlineKeyboardButton('Season 05-B', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADtQQAAl3T4Fa4y_87l1to_RYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+   elif query.data == "money_heist_S":
+        buttons= [[
+            InlineKeyboardButton('480p', callback_data='money_heist_S_480p'),
+            InlineKeyboardButton('720p', callback_data='money_heist_E_720p'),
+            InlineKeyboardButton('1080p', callback_data='money_heist_E_1080p')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.MONEY_HEIST_TXT_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+   elif query.data == "money_heist_S_480p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=DSTORE-OV85Xy0xMDAxNjE1MDA4MDgz'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADpQQAAl3T4FZC6fytqDmy4RYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADpgQAAl3T4FbZVZGYXr0vAxYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADpwQAAl3T4FaUG0krWJaSRxYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05-A', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADtgQAAl3T4FYdkOYLlRdGnhYE'),
+            InlineKeyboardButton('Season 05-B', url='https://t.me/SpaciousUniverseBot?start=DSTORE-OV85Xy0xMDAxNjE1MDA4MDgz')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+   elif query.data == "money_heist_H":
+        buttons= [[
+            InlineKeyboardButton('480p', callback_data='money_heist_E_480p'),
+            InlineKeyboardButton('720p', callback_data='money_heist_E_720p'),
+            InlineKeyboardButton('1080p', callback_data='money_heist_E_1080p')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.MONEY_HEIST_TXT_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+   elif query.data == "money_heist_H_480p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADtwQAAl3T4FaiQnIAAUQ8Z74WBA'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADuAQAAl3T4FZHoU3KBaYE1xYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADuQQAAl3T4FbQz2CMBZwIuxYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADugQAAl3T4FZrIXOt9hX1NRYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05-A', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADqAQAAl3T4FbgL57bctSXiRYE'),
+            InlineKeyboardButton('Season 05-B', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADuwQAAl3T4Fbc-4FWKDviCRYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+   elif query.data == "money_heist_H_720p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADvAQAAl3T4FataDJzQy1lZhYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADvQQAAl3T4FaOzm5qkMeiGxYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADvgQAAl3T4FZTR2jzY_R4LBYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADvwQAAl3T4FYh3CTCXnXQihYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05-A', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADwAQAAl3T4FYRBFaD-HeocxYE'),
+            InlineKeyboardButton('Season 05-B', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADwQQAAl3T4FaTvZTRIGeHNxYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+   elif query.data == "money_heist_H_1080p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADwgQAAl3T4FZJ-EDog8EBchYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADwwQAAl3T4FZc1VXSRyelRRYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADxAQAAl3T4FZRdaTaC_-OURYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADxQQAAl3T4FZXLcMLISujdxYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05-A', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADxgQAAl3T4FZlGLXWsWmJThYE'),
+            InlineKeyboardButton('Season 05-B', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADwQQAAl3T4FaTvZTRIGeHNxYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+   elif query.data == "money_heist_Te":
+        buttons= [[
+            InlineKeyboardButton('720p', callback_data='money_heist_H_720p'),
+            InlineKeyboardButton('1080p', callback_data='money_heist_H_1080p')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.MONEY_HEIST_TXT_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+   elif query.data == "money_heist_Ta":
+        buttons= [[
+            InlineKeyboardButton('720p', callback_data='money_heist_H_720p'),
+            InlineKeyboardButton('1080p', callback_data='money_heist_H_1080p')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.MONEY_HEIST_TXT_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+   
+   elif query.data == "Maradona_E":
         buttons= [[
             InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADcgYAAl3T2FbbHTYq9l3UVhYE'),
             InlineKeyboardButton('Close', callback_data='cls')
