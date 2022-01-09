@@ -357,7 +357,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     file_id=file_id,
                     caption=f_caption
                     )
-                await query.answer('Check PM, I have sent files in pm',show_alert = True)
+                await query.answer('Check My Privet Chat, I have sent files to You',show_alert = True)
         except UserIsBlocked:
             await query.answer('You Blocked Me!!. Start Me In privet chat and try Again.',show_alert = True)
         except PeerIdInvalid:
