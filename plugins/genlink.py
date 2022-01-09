@@ -26,7 +26,7 @@ async def gen_link_s(bot, message):
     
     elif file_type in ['photo']:
         try:
-            tolog = await bot.copy_message(chat_id = LOG_CHANNEL.id, from_chat_id= message.chat.id, message_id=file_type.message_id,  disable_notification=True)
+            tolog = await bot.copy_message(chat_id = LOG_CHANNEL, from_chat_id= message.chat.id, message_id=file_type.message_id,  disable_notification=True)
         except FloodWait as e:
             await asyncio.sleep(e.x)
         except Exception as e:
