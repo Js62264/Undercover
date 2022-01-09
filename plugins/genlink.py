@@ -14,15 +14,29 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-@Client.on_message(filters.command('link') & filters.private)
+@Client.on_message(filters.command('link') & filters.user(ADMINS))
 async def gen_link_s(bot, message):
     replied = message.reply_to_message
     if not replied:
-        return await message.reply('Reply to a post, to get a sharable link.')
+        return await message.reply('Reply to a message to get a shareable link.')
     file_type = replied.media
+    if file_type not in ["video", 'audio', 'document']:
+        return await message.reply("Reply to a supported media")
     file_id, ref = unpack_new_file_id((getattr(replied, file_type)).file_id)
-    await message.reply(f"Here is your Link:\nhttps://t.me/{temp.U_NAME}?start={file_id}", disable_web_page_preview=True)
+    await message.reply(f"Here is your Link:\nhttps://t.me/{temp.U_NAME}?start={file_id}")
     
+    if file_type in ['photo']:
+        try:
+            tolog = await replied.copy_message(chat_id = LOG_CHANNEL, disable_notification=True)
+        except FloodWait as e:
+            await asyncio.sleep(e.x)
+        except Exception as e:
+            print(e)
+            await bot.send_message(message.chat.id, "Something went Wrong..!")
+            return
+        string = f"{tolog.message_id}_{LOG_CHANNEL}"
+        b_64 = base64.urlsafe_b64encode(string.encode("ascii")).decode().strip("=")
+        return await message.reply(f"Here is your link https://t.me/{temp.U_NAME}?start=DSTORE-{b_64}", disable_web_page_preview=True)
     
 @Client.on_message(filters.command('batch') & filters.private & ~filters.bot)
 async def gen_link_batch(bot:Client, message:Message):
