@@ -528,7 +528,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "Maradona_E":
         buttons= [[
-            InlineKeyboardButton('Season 01', url='ttps://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADcgYAAl3T2FbbHTYq9l3UVhYE'),
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADcgYAAl3T2FbbHTYq9l3UVhYE'),
             InlineKeyboardButton('Close', callback_data='cls')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
