@@ -1,4 +1,7 @@
 class quote(object):
+  RESULT_TXT = """
+○ Here Is Result For Your Request
+"""
   MARADONA_TXT = """
 ○ Title: Maradona: Blessed Dream
 ○ Year: 2021
