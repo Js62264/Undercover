@@ -69,23 +69,6 @@ async def give_filter(client,message):
                     logger.exception(e)
                 break
     
-    if name == 'Maradona':
-         keyboard = InlineKeyboardMarkup(
-            [
-               [
-                  InlineKeyboardButton('English', callback_data='Maradona_E'),
-                  InlineKeyboardButton('Multi', callback_data='Maradona_M')
-               ]
-            ]
-         )
-        await message.reply_photo(
-           photo='https://github.com/kalanakt/Bae-Suzy/blob/master/assets/English/Maradona%20Blessed%20Dream.jpg',
-           caption=quote.MARADONA_TXT,
-           reply_markup=keyboard,
-           parse_mode='html'
-        )
-         return
-    
     else:
         await auto_filter(client, message)   
 
