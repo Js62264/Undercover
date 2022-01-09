@@ -34,9 +34,19 @@ async def give_filter(client,message):
     group_id = message.chat.id
     name = message.text
     if name == 'Maradona':
+         buttons = [
+            [
+                InlineKeyboardButton('English', callback_data='Maradona_E')
+            ],
+            [
+                InlineKeyboardButton('Multi Audio', callback_data='Maradona_M'),
+            ]
+            ]
+         reply_markup = InlineKeyboardMarkup(buttons)
          await message.reply_photo(
             photo=MARADONA_PIC,
             caption=quote.MARADONA_TXT,
+            reply_markup=reply_markup,
             parse_mode='html'
          )
     keywords = await get_filters(group_id)
