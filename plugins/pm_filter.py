@@ -32,22 +32,6 @@ SPELL_CHECK = {}
 async def give_filter(client,message):
     group_id = message.chat.id
     name = message.text
-    
-    if:
-      name = 'Maradona'
-      buttons = [[
-         InlineKeyboardButton('English', callback_data='Maradona_E'),
-         InlineKeyboardButton('Multi', callback_data='Maradona_M')
-      ]]
-      reply_markup = InlineKeyboardMarkup(buttons)
-      await message.reply_photo(
-         photo='https://github.com/kalanakt/Bae-Suzy/blob/master/assets/English/Maradona%20Blessed%20Dream.jpg',
-         caption=quote.MARADONA_TXT,
-         reply_markup=reply_markup,
-         parse_mode='html'
-      )
-      return
-    
     keywords = await get_filters(group_id)
     for keyword in reversed(sorted(keywords, key=len)):
         pattern = r"( |^|[^\w])" + re.escape(keyword) + r"( |$|[^\w])"
