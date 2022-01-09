@@ -5,6 +5,7 @@ import ast
 
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
+from Quote import quote
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, make_inactive
 from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
@@ -68,7 +69,21 @@ async def give_filter(client,message):
                 except Exception as e:
                     logger.exception(e)
                 break 
-
+    if:
+      name = 'Maradona'
+      buttons = [[
+         InlineKeyboardButton('English', callback_data='Maradona_E'),
+         InlineKeyboardButton('Multi', callback_data='Maradona_M')
+      ]]
+      reply_markup = InlineKeyboardMarkup(buttons)
+      await message.reply_photo(
+         photo='https://github.com/kalanakt/Bae-Suzy/blob/master/assets/English/Maradona%20Blessed%20Dream.jpg',
+         caption=quote.MARADONA_TXT,
+         reply_markup=reply_markup,
+         parse_mode='html'
+      )
+      return
+   
     else:
         await auto_filter(client, message)   
 
