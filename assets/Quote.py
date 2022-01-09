@@ -11,3 +11,21 @@ class quote(object):
     
 Choose the language you want..
 """
+  MONEY_HEIST_TXT_1 = """
+○ Title: Money Heist (La casa de Papel)
+○ Year: 2017
+○ Language: English | Spanish | Hindi | Telghu | Tamil
+○ Season: Season 01-05
+○ Quality: 480p | 720p | 1080p
+    
+Choose the language you want..
+"""
+  MONEY_HEIST_TXT_2 = """
+○ Title: Money Heist (La casa de Papel)
+○ Year: 2017
+○ Language: English | Spanish | Hindi | Telghu | Tamil
+○ Season: Season 01-05
+○ Quality: 480p | 720p | 1080p
+    
+Choose the Quality you want..
+"""
