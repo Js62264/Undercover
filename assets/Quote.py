@@ -7,6 +7,7 @@ class quote(object):
 ○ Year: 2021
 ○ Language: English | Multi (Hindi Telghu Malayalam) 
 ○ Season: Season 01
+○ Quality: 720p
     
 Choose the language you want..
 """
