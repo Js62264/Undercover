@@ -8,8 +8,7 @@ from pyrogram import Client, filters
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def up_filter(client,message):
-  if:
-    message.text = 'Maradona'
+  if message.text = 'Maradona':
     buttons = [[
          InlineKeyboardButton('English', callback_data='Maradona_E'),
          InlineKeyboardButton('Multi', callback_data='Maradona_M')
