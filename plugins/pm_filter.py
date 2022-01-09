@@ -33,7 +33,7 @@ SPELL_CHECK = {}
 async def give_filter(client,message):
     group_id = message.chat.id
     name = message.text
-    if name == 'Maradona':
+    if name.lower() == 'maradona':
          buttons = [
             [
                 InlineKeyboardButton('English', callback_data='Maradona_E'),
