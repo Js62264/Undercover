@@ -70,15 +70,18 @@ async def give_filter(client,message):
                 break
     
     if name == 'Maradona':
-         buttons = [[
-            InlineKeyboardButton('English', callback_data='Maradona_E'),
-            InlineKeyboardButton('Multi', callback_data='Maradona_M')
-         ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
+         keyboard = InlineKeyboardMarkup(
+            [
+               [
+                  InlineKeyboardButton('English', callback_data='Maradona_E'),
+                  InlineKeyboardButton('Multi', callback_data='Maradona_M')
+               ]
+            ]
+         )
         await message.reply_photo(
            photo='https://github.com/kalanakt/Bae-Suzy/blob/master/assets/English/Maradona%20Blessed%20Dream.jpg',
            caption=quote.MARADONA_TXT,
-           reply_markup=reply_markup,
+           reply_markup=keyboard,
            parse_mode='html'
         )
          return
