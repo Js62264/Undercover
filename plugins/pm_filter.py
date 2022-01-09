@@ -5,6 +5,7 @@ import ast
 
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
+from assets.picture import *
 from assets.Quote import quote
 import pyrogram
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, make_inactive
@@ -33,8 +34,10 @@ async def give_filter(client,message):
     group_id = message.chat.id
     name = message.text
     if name == 'Maradona':
-         await message.reply_text(
-         text="test"
+         await message.reply_photo(
+            photo=MARADONA_PIC,
+            caption=quote.MARADONA_TXT,
+            parse_mode='html'
          )
     keywords = await get_filters(group_id)
     for keyword in reversed(sorted(keywords, key=len)):
