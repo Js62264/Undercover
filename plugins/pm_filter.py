@@ -36,12 +36,10 @@ async def give_filter(client,message):
     if name == 'Maradona':
          buttons = [
             [
-                InlineKeyboardButton('English', callback_data='Maradona_E')
-            ],
-            [
-                InlineKeyboardButton('Multi Audio', callback_data='Maradona_M'),
+                InlineKeyboardButton('English', callback_data='Maradona_E'),
+                InlineKeyboardButton('Multi Audio', callback_data='Maradona_M')
             ]
-            ]
+         ]
          reply_markup = InlineKeyboardMarkup(buttons)
          await message.reply_photo(
             photo=MARADONA_PIC,
@@ -525,6 +523,28 @@ async def cb_handler(client: Client, query: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
             text=script.ABOUT_TXT.format(temp.B_NAME),
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "Maradona_E":
+        buttons= [[
+            InlineKeyboardButton('Season 01', url='ttps://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADcgYAAl3T2FbbHTYq9l3UVhYE'),
+            InlineKeyboardButton('Close', callback_data='cls')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "Maradona_M":
+        buttons= [[
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADcwYAAl3T2FY-Wv5WgKODjhYE'),
+            InlineKeyboardButton('Close', callback_data='cls')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
             reply_markup=reply_markup,
             parse_mode='html'
         )
