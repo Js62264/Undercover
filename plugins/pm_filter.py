@@ -510,18 +510,22 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
+      
+      
    elif query.data == "money_heist_E":
         buttons= [[
             InlineKeyboardButton('480p', callback_data='money_heist_E_480p'),
             InlineKeyboardButton('720p', callback_data='money_heist_E_720p'),
-            InlineKeyboardButton('1080p', callback_data='money_heist_E_1080p')
+            InlineKeyboardButton('1080p', callback_data='money_heist_E_1080p'),
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=quote.MONEY_HEIST_TXT_1,
+            text=quote.MONEY_HEIST_TXT_2,
             reply_markup=reply_markup,
             parse_mode='html'
         )
+         
+         
    elif query.data == "money_heist_E_480p":
         buttons= [
            [
