@@ -74,3 +74,21 @@ Choose the Quality you want..
     
 Choose the Quality you want..
 """
+  STRANGER_THINGS_1 = """
+○ Title: Stranger things
+○ Year: 2016
+○ Language: English | (English | Hindi)
+○ Season: Season 01-03
+○ Quality: 480p | 720p | 1080p
+    
+Choose the language you want..
+"""
+  STRANGER_THINGS_2 = """
+○ Title: Stranger things
+○ Year: 2016
+○ Language: English | (English | Hindi)
+○ Season: Season 01-03
+○ Quality: 480p | 720p | 1080p
+    
+Choose the Quality you want..
+"""
