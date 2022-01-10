@@ -84,6 +84,23 @@ async def give_filter(client,message):
             reply_markup=reply_markup,
             parse_mode='html'
          )
+    if name.lower() == 'you':
+         buttons = [
+            [
+                InlineKeyboardButton('720p', callback_data='you_720p')
+            ],
+            [
+                InlineKeyboardButton('1080p', callback_data='you_1080p')
+            ]
+         ]
+         reply_markup = InlineKeyboardMarkup(buttons)
+         await message.reply_photo(
+            photo=YOU_PIC,
+            caption=quote.YOU_2 ,
+            reply_markup=reply_markup,
+            parse_mode='html'
+         )
+         
     if name.lower() == 'the witcher' or name.lower() == 'witcher':
          buttons = [
             [
@@ -580,6 +597,23 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
+     
+    elif query.data == "you_720p":
+        buttons= [
+           [
+              InlineKeyboardButton('English', callback_data='you_E_720p')
+           ],
+           [
+              InlineKeyboardButton('Hindi', callback_data='you_H_720p')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.YOU_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+      
     elif query.data == "witcher_720p":
         buttons= [
            [
@@ -824,6 +858,60 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
+    elif query.data == "you_E_720p":
+        buttons= [
+           [
+              InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADfQQAAl3T6FZ8DJvke9vqZRYE'),
+              InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADfgQAAl3T6FZ2eH8NWh1i2RYE')
+           ],
+           [
+              InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADfwQAAl3T6Fbzc8Et6wHCwRYE'),
+              InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+    elif query.data == "you_1080p":
+        buttons= [
+           [
+              InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADgAQAAl3T6FbuqT-DhLGPdxYE'),
+              InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADgQQAAl3T6FY0yFe5QE5hghYE')
+           ],
+           [
+              InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADggQAAl3T6FZtvsWSsyCDZBYE'),
+              InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+    elif query.data == "you_H_720p":
+        buttons= [
+           [
+              InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADgwQAAl3T6FanF7X48mofdRYE'),
+              InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADhAQAAl3T6FbqrBNsk4qfMRYE')
+           ],
+           [
+              InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADhQQAAl3T6FaZgBRBcWD88RYE'),
+              InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
     elif query.data == "stranger_things_H_480p":
         buttons= [
            [
@@ -840,7 +928,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text=quote.RESULT_TXT,
             reply_markup=reply_markup,
             parse_mode='html'
-        ) 
+        )
+         
     elif query.data == "stranger_things_H_720p":
         buttons= [
            [
