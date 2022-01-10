@@ -93,7 +93,7 @@ Choose the language you want..
 Choose the Quality you want..
 """
   YOU_1 = """
-○ Title: Stranger things
+○ Title: You
 ○ Year: 2018
 ○ Language: English | Hindi
 ○ Season: Season 01-03
@@ -102,7 +102,7 @@ Choose the Quality you want..
 Choose the language you want..
 """
   YOU_2 = """
-○ Title: Stranger things
+○ Title: You
 ○ Year: 2018
 ○ Language: English | Hindi
 ○ Season: Season 01-03
