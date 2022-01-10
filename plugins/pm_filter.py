@@ -84,6 +84,24 @@ async def give_filter(client,message):
             reply_markup=reply_markup,
             parse_mode='html'
          )
+         
+    if name.lower() == 'peaky blinders':
+         buttons = [
+            [
+                InlineKeyboardButton('720p', callback_data='peaky_blinders_720p')
+            ],
+            [
+                InlineKeyboardButton('1080p', callback_data='peaky_blinders_1080p')
+            ]
+         ]
+         reply_markup = InlineKeyboardMarkup(buttons)
+         await message.reply_photo(
+            photo=PEAKY_BLINDERS_PIC,
+            caption=quote.PEAKY_BLINDERS ,
+            reply_markup=reply_markup,
+            parse_mode='html'
+         )
+         
     if name.lower() == 'vikings' or name.lower() == 'viking':
          buttons = [
             [
@@ -591,6 +609,48 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
+    elif query.data == "peaky_blinders_1080p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADiAUAAl3T4FZO4run3aptrhYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADiQUAAl3T4FaZY4qa50xxhhYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADigUAAl3T4FY6-VVIJyU6gRYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADiwUAAl3T4FYRj4313xH2-BYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADjAUAAl3T4FZD-AGvkPy3RhYE'),
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "peaky_blinders_720p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADgwUAAl3T4FZ_vXYWm6_RihYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADhAUAAl3T4FYs2i8dmfXbWRYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADhQUAAl3T4FbkVy6TbLw6BhYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADhgUAAl3T4FZLIvZI9glbVRYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADhwUAAl3T4FbPmysvVK5xYE'),
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )     
     elif query.data == "vikings_E_480p":
         buttons= [
            [
