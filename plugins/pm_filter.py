@@ -49,9 +49,12 @@ async def give_filter(client,message):
     if name.lower() == 'maradona':
          buttons = [
             [
-                InlineKeyboardButton('English', callback_data='Maradona_E'),
-                InlineKeyboardButton('Hindi', callback_data='Maradona_M')
+                InlineKeyboardButton('English', callback_data='Maradona_E')
+            ],
+            [
+               InlineKeyboardButton('Multi Audio', callback_data='Maradona_M')
             ]
+               
          ]
          reply_markup = InlineKeyboardMarkup(buttons)
          await message.reply_photo(
