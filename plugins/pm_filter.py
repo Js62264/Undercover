@@ -545,7 +545,22 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-      
+    elif query.data == "witcher_720p":
+        buttons= [
+           [
+              InlineKeyboardButton('English', callback_data='witcher_E_720p')
+           ],
+           [
+              InlineKeyboardButton('Hindi | English', callback_data='witcher_H_720p')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.WITCHER_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
     elif query.data == "vikings_480p":
         buttons= [
            [
@@ -943,8 +958,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-         
-   
     elif query.data == "Maradona_E":
         buttons= [[
             InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADcgYAAl3T2FbbHTYq9l3UVhYE'),
@@ -955,7 +968,73 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text=quote.RESULT_TXT,
             reply_markup=reply_markup,
             parse_mode='html'
+        )     
+   
+    elif query.data == "witcher_480p":
+        buttons= [
+           [
+              InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADZQUAAl3T4FaSp0tPpnC_FRYE'),
+              InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADZgUAAl3T4FYCt4c90GA-xRYE')
+           ],
+           [
+              InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
         )
+    elif query.data == "witcher_E_720p":
+        buttons= [
+           [
+              InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADYwUAAl3T4FZ-T9d_UWRvLRYE'),
+              InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADZAUAAl3T4Fa1xeB6Pb4PzxYE')
+           ],
+           [
+              InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "witcher_H_720p":
+        buttons= [
+           [
+              InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADaAUAAl3T4FaUA2gouf12xRYE'),
+              InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADaQUAAl3T4FaRIaUSzd8_IxYE')
+           ],
+           [
+              InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "witcher_1080p":
+        buttons= [
+           [
+              InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADagUAAl3T4FboEr8VzcAiYBYE'),
+              InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADawUAAl3T4FYsgCfUSD_S7RYE')
+           ],
+           [
+              InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
     elif query.data == "Maradona_M":
         buttons= [[
             InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADcwYAAl3T2FY-Wv5WgKODjhYE'),
