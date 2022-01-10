@@ -52,7 +52,7 @@ Choose the Quality you want..
 ○ Year: 2019
 ○ Language: English | (English | Hindi)
 ○ Season: Season 01-02
-○ Quality: 480p | 720p | 1080p(Eng)
+○ Quality: 480p | 720p | 1080p(English)
     
 Choose the language you want..
 """
@@ -61,7 +61,7 @@ Choose the language you want..
 ○ Year: 2019
 ○ Language: English | (English | Hindi)
 ○ Season: Season 01-02
-○ Quality: 480p | 720p | 1080p(Eng)
+○ Quality: 480p | 720p | 1080p(English)
     
 Choose the Quality you want..
 """
