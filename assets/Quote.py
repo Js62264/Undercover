@@ -29,3 +29,21 @@ Choose the language you want..
     
 Choose the Quality you want..
 """
+  VIKINGS_1 = """
+○ Title: Vikings
+○ Year: 2013
+○ Language: English | (English | Hindi)
+○ Season: Season 01-06
+○ Quality: 480p | 720p | 1080p
+    
+Choose the language you want..
+"""
+  VIKINGS_2 = """
+○ Title: Vikings
+○ Year: 2013
+○ Language: English | (English | Hindi)
+○ Season: Season 01-06
+○ Quality: 480p | 720p | 1080p
+    
+Choose the Quality you want..
+"""
