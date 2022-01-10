@@ -65,3 +65,12 @@ Choose the language you want..
     
 Choose the Quality you want..
 """
+  PEAKY_BLINDERS = """
+○ Title: Peaky Blinders
+○ Year: 2013
+○ Language: English
+○ Season: Season 01-05
+○ Quality: 720p | 1080p
+    
+Choose the Quality you want..
+"""
