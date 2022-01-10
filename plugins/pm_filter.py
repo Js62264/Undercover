@@ -41,8 +41,8 @@ async def give_filter(client,message):
          ]
          reply_markup = InlineKeyboardMarkup(buttons)
          await message.reply_photo(
-            photo=MARADONA_PIC,
-            caption=quote.STRANGER_THINGS,
+            photo=STRANGER_THINGS_PIC,
+            caption=quote.STRANGER_THINGS_1,
             reply_markup=reply_markup,
             parse_mode='html'
          )
