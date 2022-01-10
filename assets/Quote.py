@@ -47,3 +47,21 @@ Choose the language you want..
     
 Choose the Quality you want..
 """
+  WITCHER_1 = """
+○ Title: The Witcher
+○ Year: 2019
+○ Language: English | (English | Hindi)
+○ Season: Season 01-02
+○ Quality: 480p | 720p | 1080p(English)
+    
+Choose the language you want..
+"""
+  WITCHER_2 = """
+○ Title: The Witcher
+○ Year: 2019
+○ Language: English | (English | Hindi)
+○ Season: Season 01-02
+○ Quality: 480p | 720p | 1080p(English)
+    
+Choose the Quality you want..
+"""
