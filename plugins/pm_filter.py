@@ -32,11 +32,25 @@ SPELL_CHECK = {}
 @Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
 async def give_filter(client,message):
     name = message.text
+    if name.lower() == 'stranger things':
+         buttons = [
+            [
+                InlineKeyboardButton('English', callback_data='stranger_things_E'),
+                InlineKeyboardButton('Hindi', callback_data='stranger_things_H')
+            ]
+         ]
+         reply_markup = InlineKeyboardMarkup(buttons)
+         await message.reply_photo(
+            photo=MARADONA_PIC,
+            caption=quote.STRANGER_THINGS,
+            reply_markup=reply_markup,
+            parse_mode='html'
+         )
     if name.lower() == 'maradona':
          buttons = [
             [
                 InlineKeyboardButton('English', callback_data='Maradona_E'),
-                InlineKeyboardButton('Multi Audio', callback_data='Maradona_M')
+                InlineKeyboardButton('Hindi', callback_data='Maradona_M')
             ]
          ]
          reply_markup = InlineKeyboardMarkup(buttons)
@@ -775,8 +789,126 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-   
-   
+    elif query.data == "stranger_things_H":
+        buttons= [
+           [
+              InlineKeyboardButton('480p', callback_data='stranger_things_H_480p')
+           ],
+           [
+              InlineKeyboardButton('720p', callback_data='stranger_things_H_720p')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.STRANGER_THINGS_2,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+    elif query.data == "stranger_things_E":
+        buttons= [
+           [
+              InlineKeyboardButton('480p', callback_data='stranger_things_E_480p'),
+              InlineKeyboardButton('720p', callback_data='stranger_things_E_720p')
+           ],
+           [
+              InlineKeyboardButton('1080p', callback_data='stranger_things_E_1080p')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.STRANGER_THINGS_2,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "stranger_things_H_480p":
+        buttons= [
+           [
+              InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXwQAAl3T6FbdhkzTtRmN8xYE'),
+              InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADYAQAAl3T6FbMlJE3uvCd1xYE')
+           ],
+           [
+              InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADYQQAAl3T6FZy54s5vRvKcxYE'),
+              InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        ) 
+    elif query.data == "stranger_things_H_720p":
+        buttons= [
+           [
+              InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADYgQAAl3T6Fbm5zVUL6gnIBYE'),
+              InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADYwQAAl3T6FaoG8nuaRjTMxYE')
+           ],
+           [
+              InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADZAQAAl3T6FZDBI_pnxR5yRYE'),
+              InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+    elif query.data == "stranger_things_E_480p":
+        buttons= [
+           [
+              InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADVgQAAl3T6FZQAAH3OYLLikMWBA'),
+              InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADVwQAAl3T6Fa-nEMqzqwCwRYE')
+           ],
+           [
+              InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADWAQAAl3T6FZ6ERhcmA4wsxYE'),
+              InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        ) 
+    elif query.data == "stranger_things_E_720p":
+        buttons= [
+           [
+              InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADWQQAAl3T6FblxoZg1uLucBYE'),
+              InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADWgQAAl3T6FaKCLCUcAoeShYE')
+           ],
+           [
+              InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADWwQAAl3T6Faafy61Ka5HMxYE'),
+              InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        ) 
+         
+    elif query.data == "stranger_things_E_1080p":
+        buttons= [
+           [
+              InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXAQAAl3T6FZDTrbVr7TVyBYE'),
+              InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXQQAAl3T6FYNUxhZsgJy0hYE')
+           ],
+           [
+              InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXgQAAl3T6FacSWBEe6lK3hYE'),
+              InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
     elif query.data == "money_heist_E":
         buttons= [
            [
