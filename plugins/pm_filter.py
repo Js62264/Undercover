@@ -67,6 +67,23 @@ async def give_filter(client,message):
             reply_markup=reply_markup,
             parse_mode='html'
          )
+    if name.lower() == 'the witcher' or name.lower() == 'witcher':
+         buttons = [
+            [
+                InlineKeyboardButton('480p', callback_data='witcher_480p'),
+                InlineKeyboardButton('720p', callback_data='witcher_720p')
+            ],
+            [
+                InlineKeyboardButton('1080p', callback_data='witcher_1080p')
+            ]
+         ]
+         reply_markup = InlineKeyboardMarkup(buttons)
+         await message.reply_photo(
+            photo=WITCHER_PIC,
+            caption=quote.WITCHER_2 ,
+            reply_markup=reply_markup,
+            parse_mode='html'
+         )
     if name.lower() == 'vikings' or name.lower() == 'viking':
          buttons = [
             [
@@ -84,7 +101,7 @@ async def give_filter(client,message):
             reply_markup=reply_markup,
             parse_mode='html'
          )
-  
+         
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)  
