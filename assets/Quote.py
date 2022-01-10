@@ -92,4 +92,22 @@ Choose the language you want..
     
 Choose the Quality you want..
 """
+  YOU_1 = """
+○ Title: Stranger things
+○ Year: 2018
+○ Language: English | Hindi
+○ Season: Season 01-03
+○ Quality: 720p
+    
+Choose the language you want..
+"""
+  YOU_2 = """
+○ Title: Stranger things
+○ Year: 2018
+○ Language: English | Hindi
+○ Season: Season 01-03
+○ Quality: 480p | 720p | 1080p
+    
+Choose the Quality you want..
+"""
   
