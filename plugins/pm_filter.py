@@ -67,6 +67,24 @@ async def give_filter(client,message):
             reply_markup=reply_markup,
             parse_mode='html'
          )
+    if name.lower() == 'vikings' or name.lower() == 'viking':
+         buttons = [
+            [
+                InlineKeyboardButton('480p', callback_data='vikings_480p'),
+                InlineKeyboardButton('720p', callback_data='vikings_720p')
+            ],
+            [
+                InlineKeyboardButton('1080p', callback_data='vikings_1080p')
+            ]
+         ]
+         reply_markup = InlineKeyboardMarkup(buttons)
+         await message.reply_photo(
+            photo=VIKINGS_PIC,
+            caption=quote.VIKINGS_2 ,
+            reply_markup=reply_markup,
+            parse_mode='html'
+         )
+  
     k = await manual_filters(client, message)
     if k == False:
         await auto_filter(client, message)  
@@ -511,7 +529,162 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode='html'
         )
       
-      
+    elif query.data == "vikings_480p":
+        buttons= [
+           [
+              InlineKeyboardButton('English', callback_data='vikings_E_480p')
+           ],
+           [
+              InlineKeyboardButton('Hindi | English', callback_data='vikings_H_480p')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.VIKINGS_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "vikings_720p":
+        buttons= [
+           [
+              InlineKeyboardButton('English', callback_data='vikings_E_720p')
+           ],
+           [
+              InlineKeyboardButton('Hindi | English', callback_data='vikings_H_720p')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.VIKINGS_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "vikings_E_480p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADKQUAAl3T4FZJbZ6k4WOdaRYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADKgUAAl3T4FYOAzTSbZkZ_xYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADKwUAAl3T4FYvnfNQJdGUQxYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADLAUAAl3T4FbBL_9e4DwUoBYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADLQUAAl3T4Fav05wAAdcC_gIWBA'),
+            InlineKeyboardButton('Season 06', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADLgUAAl3T4FZSixE-mFYKIRYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+    elif query.data == "vikings_E_720p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADLwUAAl3T4Fa9gPR7PpiUwRYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADMAUAAl3T4FZ5nmXXc5_1yhYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADMgUAAl3T4FZTXhAKREQ9SRYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADMwUAAl3T4FbsGsGUVewXoBYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADNAUAAl3T4FZOBJpa2bVYrxYE'),
+            InlineKeyboardButton('Season 06', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADNQUAAl3T4Fbo2-gXuCS_sBYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+    elif query.data == "vikings_1080p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADNgUAAl3T4FboLgvktY-LoBYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADNwUAAl3T4Fbl4GyZGN03OBYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADOAUAAl3T4FbAWQ_zd9ngiBYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADOQUAAl3T4FYhyyfIUMpMHhYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADOwUAAl3T4FawMXAIRhw3GBYE'),
+            InlineKeyboardButton('Season 06', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADPAUAAl3T4FbV-lDpzT71-BYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+    elif query.data == "vikings_H_480p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADPQUAAl3T4FbfGeUhXI-cORYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADPgUAAl3T4FYnlmtea-D8nhYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADPwUAAl3T4Fbz_-8T6QbqqxYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADQAUAAl3T4FZ6Ih8Uxxe3SBYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADQQUAAl3T4FakyV4tLvtLWxYE'),
+            InlineKeyboardButton('Season 06', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADQgUAAl3T4FaMVywpzyw71BYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+    elif query.data == "vikings_H_720p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADQwUAAl3T4FbRN8rM-_5XnxYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADRQUAAl3T4FatXVKwqSQAAaAWBA')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADRgUAAl3T4FZ5Op1c98J_4RYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADSAUAAl3T4FbZlhplgBdhqBYE')
+           ],
+           [
+            InlineKeyboardButton('Season 05', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADSQUAAl3T4Fba8TYCKe5kfRYE'),
+            InlineKeyboardButton('Season 06', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADSgUAAl3T4FYOVW2iVjImpRYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+   
+   
     elif query.data == "money_heist_E":
         buttons= [
            [
