@@ -7,3 +7,4 @@
 5. Peaky Blinders
 6. Stranger Things
 7. You
+8. Cobra Kai
