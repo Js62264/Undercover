@@ -100,6 +100,23 @@ async def give_filter(client,message):
             reply_markup=reply_markup,
             parse_mode='html'
          )
+    if name.lower() == 'cobra kai':
+         buttons = [
+            [
+                InlineKeyboardButton('480p', callback_data='cobra_kai_480p'),
+                InlineKeyboardButton('720p', callback_data='cobra_kai_720p')
+            ],
+            [
+                InlineKeyboardButton('1080p', callback_data='cobra_kai_1080p')
+            ]
+         ]
+         reply_markup = InlineKeyboardMarkup(buttons)
+         await message.reply_photo(
+            photo=COBRA_KAI_PIC,
+            caption=quote.COBRA_KAI_2 ,
+            reply_markup=reply_markup,
+            parse_mode='html'
+         )
          
     if name.lower() == 'the witcher' or name.lower() == 'witcher':
          buttons = [
@@ -597,19 +614,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-     
-    elif query.data == "you_720p":
+    elif query.data == "cobra_kai_720p":
         buttons= [
            [
-              InlineKeyboardButton('English', callback_data='you_E_720p')
+              InlineKeyboardButton('English', callback_data='cobra_kai_E_720p')
            ],
            [
-              InlineKeyboardButton('Hindi', callback_data='you_H_720p')
+              InlineKeyboardButton('Hindi', callback_data='cobra_kai_H_720p')
            ]
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=quote.YOU_1,
+            text=quote.COBRA_KAI_1,
             reply_markup=reply_markup,
             parse_mode='html'
         )
@@ -715,6 +731,88 @@ async def cb_handler(client: Client, query: CallbackQuery):
            [
             InlineKeyboardButton('Season 05', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADLQUAAl3T4Fav05wAAdcC_gIWBA'),
             InlineKeyboardButton('Season 06', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADLgUAAl3T4FZSixE-mFYKIRYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "cobra_kai_E_720p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADzwMAAnIV8FaEQE3QmdsYLhYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQAD0AMAAnIV8FbKs6ghnG3lbBYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQAD0QMAAnIV8FYDzjqIBpiRqxYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQAD0gMAAnIV8FaKZOa8tzZP0xYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+    elif query.data == "cobra_kai_H_720p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADygMAAnIV8FYvCQsxC0Nw5xYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADywMAAnIV8FbDEfP0yRWauRYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADzAMAAnIV8FbQZ8jKN_DTbBYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADzQMAAnIV8Fau_SwQ1uV1DBYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "cobra_kai_1080p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQAD0wMAAnIV8FYRppcjsEuDdBYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQAD1AMAAnIV8FYXnA9mUtIGVxYE')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQAD1QMAAnIV8FbgBmoS0nX9FRYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQAD1gMAAnIV8FYeAnZ2qeHkLhYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
+    elif query.data == "cobra_kai_480p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADxgMAAnIV8FZJvPGNNC2B1RYE'),
+            InlineKeyboardButton('Season 02', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADxwMAAnIV8FZqAAHGq1BSvqQWBA')
+           ],
+           [
+            InlineKeyboardButton('Season 03', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADyAMAAnIV8Fa9I9r6TkeYZRYE'),
+            InlineKeyboardButton('Season 04', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADyQMAAnIV8FZUK9rOCp4ppRYE')
            ],
            [
             InlineKeyboardButton('Close', callback_data='cls')
