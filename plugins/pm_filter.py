@@ -614,6 +614,22 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
+    elif query.data == "you_720p":
+        buttons= [
+           [
+              InlineKeyboardButton('English', callback_data='you_E_720p')
+           ],
+           [
+              InlineKeyboardButton('Hindi', callback_data='you_H_720p')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.YOU_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
     elif query.data == "cobra_kai_720p":
         buttons= [
            [
