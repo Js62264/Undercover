@@ -18,6 +18,20 @@ logger.setLevel(logging.ERROR)
 BUTTONS = {}
 SPELL_CHECK = {}
 
-@Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
+@Client.on_message(filters.text & ~filters.edited & filters.incoming)
 async def give_filter(client,message):
     name = message.text
+    if name.lower() == 'stranger':
+         buttons = [
+            [
+                InlineKeyboardButton('English', callback_data='stranger_things_E'),
+                InlineKeyboardButton('Hindi', callback_data='stranger_things_H')
+            ]
+         ]
+         reply_markup = InlineKeyboardMarkup(buttons)
+         await message.reply_photo(
+            photo=STRANGER_THINGS_PIC,
+            caption=quote.STRANGER_THINGS_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+         )
