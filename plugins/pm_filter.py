@@ -32,6 +32,10 @@ SPELL_CHECK = {}
 @Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
 async def give_filter(client,message):
     name = message.text
+    k = await manual_filters(client, message)
+    if k == False:
+        await auto_filter(client, message)
+      
     if name.lower() == 'stranger things':
          buttons = [
             [
@@ -169,11 +173,7 @@ async def give_filter(client,message):
             caption=quote.VIKINGS_2 ,
             reply_markup=reply_markup,
             parse_mode='html'
-         )
-         
-    k = await manual_filters(client, message)
-    if k == False:
-        await auto_filter(client, message)  
+         )  
 
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
