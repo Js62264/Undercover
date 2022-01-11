@@ -110,4 +110,22 @@ Choose the language you want..
     
 Choose the Quality you want..
 """
+  COBRA_KAI_1 = """
+○ Title: Cobra Kai
+○ Year: 2018
+○ Language: English | (English | Hindi)
+○ Season: Season 01-04
+○ Quality: 480p | 720p | 1080p
+    
+Choose the language you want..
+"""
+  COBRA_KAI_2 = """
+○ Title: Cobra Kai
+○ Year: 2018
+○ Language: English | (English | Hindi)
+○ Season: Season 01-04
+○ Quality: 480p | 720p | 1080p
+    
+Choose the Quality you want..
+"""
   
