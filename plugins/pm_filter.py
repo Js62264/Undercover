@@ -230,19 +230,19 @@ async def next_page(bot, query):
         off_set = offset - 10
     if n_offset == 0:
         btn.append(
-                    [InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),InlineKeyboardButton(text="All", callback_data="give_all_files")]
+                    [InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),InlineKeyboardButton(text="Close", callback_data="cls")]
                 )
         btn.append(
             [InlineKeyboardButton("《", callback_data=f"next_{req}_{key}_{off_set}"), InlineKeyboardButton(f"📃 Pages {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages")]
         )
     elif off_set is None:
         btn.append(
-                    [InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),InlineKeyboardButton(text="All", callback_data="give_all_files")]
+                    [InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),InlineKeyboardButton(text="Close", callback_data="cls")]
                 )
         btn.append([InlineKeyboardButton(f"🗓 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"), InlineKeyboardButton("》", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
-                    [InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),InlineKeyboardButton(text="All", callback_data="give_all_files")]
+                    [InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),InlineKeyboardButton(text="Close", callback_data="cls")]
                 )
         btn.append(
             [
@@ -1622,32 +1622,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "cls":
         await query.message.delete()
-        
-    elif query.data == "give_all_files":
-      ident, file_id = query.data.split("#")
-      files_ = await get_file_details(file_id)
-      if not files_:
-         return await query.answer('No such file exist.')
-      files = files_[0]
-      title = files.file_name
-      size=get_size(files.file_size)
-      f_caption=files.caption
-      if CUSTOM_FILE_CAPTION:
-         try:
-            f_caption=CUSTOM_FILE_CAPTION.format(file_name=title, file_size=size, file_caption=f_caption)
-         except Exception as e:
-            logger.exception(e)
-         f_caption=f_caption
-      if f_caption is None:
-         f_caption = f"{files.file_name}"
-      for i in range(files_[0], files_[-1]):
-         await client.send_cached_media(
-            chat_id=query.from_user.id,
-            file_id=i,
-            caption=f_caption
-         )
       
-
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
@@ -1702,7 +1677,7 @@ async def auto_filter(client, msg, spoll=False):
         )
     else:
         btn.append(
-                    [InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),InlineKeyboardButton(text="All", callback_data="give_all_files")]
+                    [InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),InlineKeyboardButton(text="Close", callback_data="cls")]
                 )
         btn.append(
             [InlineKeyboardButton(text="🗓 1/1",callback_data="pages")]
