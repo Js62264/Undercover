@@ -198,8 +198,6 @@ async def next_page(bot, query):
 
     if not files:
         return
-    if files.file_name==None:
-        return
       
     if SINGLE_BUTTON:
         btn = [
