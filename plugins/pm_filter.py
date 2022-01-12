@@ -1667,6 +1667,9 @@ async def auto_filter(client, msg, spoll=False):
         btn.append(
             [InlineKeyboardButton(text=f"🗓 1/{round(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'), InlineKeyboardButton(text="》",callback_data=f"next_{req}_{key}_{offset}")]
         )
+        btn.append(
+            [InlineKeyboardButton(text=f"🗓 1/{round(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="NEXT ⏩",callback_data=f"next_{req}_{key}_{offset}")]
+        )
     else:
         btn.append(
             [InlineKeyboardButton(text="🗓 1/1",callback_data="pages"), InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),]
