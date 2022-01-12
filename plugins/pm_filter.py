@@ -180,7 +180,7 @@ async def next_page(bot, query):
 
     ident, req, key, offset = query.data.split("_")
     if int(req) not in [query.from_user.id, 0]:
-        return await query.answer("It's Not For You 😈", show_alert=True)
+        return await query.answer("It's Not For You...", show_alert=True)
     try:
         offset = int(offset)
     except:
@@ -234,18 +234,18 @@ async def next_page(bot, query):
         )
     
     elif off_set is None:
-        btn.append([InlineKeyboardButton(f"🗓 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"),InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'), InlineKeyboardButton("》", callback_data=f"next_{req}_{key}_{n_offset}")])
+        btn.append([InlineKeyboardButton(f"📃 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages"),InlineKeyboardButton(text="Check PM 📨", url ='https://t.me/SpaciousUniverseBot'), InlineKeyboardButton("》", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
                 InlineKeyboardButton("《", callback_data=f"next_{req}_{key}_{off_set}"),
-                InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),
+                InlineKeyboardButton(text="Check PM 📨", url ='https://t.me/SpaciousUniverseBot'),
                 InlineKeyboardButton("》", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
         btn.append(
             [
-                InlineKeyboardButton(f"🗓 Page 🗓 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages")
+                InlineKeyboardButton(f"📃 Page : {round(int(offset)/10)+1} / {round(total/10)} 📃 ", callback_data="pages")
             ]
         )
     try:
@@ -1667,11 +1667,11 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"🗓 1/{round(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'), InlineKeyboardButton(text="》",callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f"📃 1/{round(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'), InlineKeyboardButton(text="》",callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="🗓 1/1",callback_data="pages"), InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),]
+            [InlineKeyboardButton(text="📃 1/1",callback_data="pages"), InlineKeyboardButton(text="Check PM 📨", url ='https://t.me/SpaciousUniverseBot'),]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if IMDB else None
     if imdb:
