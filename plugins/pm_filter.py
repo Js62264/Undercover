@@ -1701,8 +1701,6 @@ async def auto_filter(client, msg, spoll=False):
             rating = imdb['rating'],
             url = imdb['url']
         )
-    else:
-        cap = f"Here is what i found for your Request {search}"
         
     if imdb and imdb.get('poster'):
         try:
@@ -1715,9 +1713,11 @@ async def auto_filter(client, msg, spoll=False):
    
         except Exception as e:
             logger.exception(e)
-            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
+            cap = f"Here is what i found for your Request {search}"
+            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     else:
-        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=True)
+        cap = f"Here is what i found for your Request {search}"
+        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.delete()
         
