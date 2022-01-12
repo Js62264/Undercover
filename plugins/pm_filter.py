@@ -1663,14 +1663,14 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-                    [InlineKeyboardButton("Check PM", url = 'https://t.me/SpaciousUniverseBot',InlineKeyboardButton("All", callback_data=f"give_all_files")]
+                    [InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),InlineKeyboardButton(text="All", callback_data="give_all_files")]
                 )
         btn.append(
             [InlineKeyboardButton(text=f"🗓 1/{round(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="》",callback_data=f"next_{req}_{key}_{offset}")]
         )
     else:
         btn.append(
-                    [InlineKeyboardButton("Check PM", url = 'https://t.me/SpaciousUniverseBot',InlineKeyboardButton("All", callback_data=f"give_all_files")]
+                    [InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),InlineKeyboardButton(text="All", callback_data="give_all_files")]
                 )
         btn.append(
             [InlineKeyboardButton(text="🗓 1/1",callback_data="pages")]
