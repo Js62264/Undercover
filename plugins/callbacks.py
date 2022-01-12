@@ -16,7 +16,7 @@ from assets.Quote import quote
 
 @Client.on_callback_query()
 async def cb_handler(client, query):
-  if query.data == "stranger_things_H_480p":
+  if query.data == "stranger_thin0p":
         buttons= [
            [
               InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXwQAAl3T6FbdhkzTtRmN8xYE'),
