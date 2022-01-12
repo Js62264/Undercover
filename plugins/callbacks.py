@@ -1,5 +1,5 @@
 import os
-Import ast
+import ast
 
 
 from pyrogram.errors import UserBannedInChannel, UserNotParticipant
