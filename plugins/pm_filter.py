@@ -242,6 +242,8 @@ async def next_page(bot, query):
                 InlineKeyboardButton(text="Check PM", url ='https://t.me/SpaciousUniverseBot'),
                 InlineKeyboardButton("》", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
+        )
+        btn.append(
             [
                 InlineKeyboardButton(f"🗓 Page 🗓 {round(int(offset)/10)+1} / {round(total/10)}", callback_data="pages")
             ]
