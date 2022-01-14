@@ -1647,7 +1647,6 @@ async def auto_filter(client, msg, spoll=False):
     nameb = file.file_name
 
     if SINGLE_BUTTON:
-        if SINGLE_BUTTON:
         btn = [
             [
                 InlineKeyboardButton(
