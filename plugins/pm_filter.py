@@ -201,31 +201,6 @@ async def next_page(bot, query):
    
     sizeb = get_size(file.file_size)
     nameb = file.file_name
-      
-    if '@' in nameb:
-      if '@Massmovies0' in nameb:
-         nameb = nameb.replace('@Massmovies0','')
-        
-      if '@CC' in nameb:
-         nameb = nameb.replace('@CC','')
-        
-      if nameb[0]=='@' or nameb[0]=='[':
-         nameb=nameb[6:]
-      
-      if '@' in nameb:
-         nameb = nameb.replace('@','')
-        
-      if '' in nameb:
-         nameb = nameb.replace(' ','.')
-        
-      if '@' in nameb:
-         nameb = nameb.replace('@','')
-        
-      if '...' in nameb:
-         nameb = nameb.replace('...','.')
-        
-      if '..' in nameb:
-         nameb = nameb.replace('..','.')
          
     if SINGLE_BUTTON:
         btn = [
@@ -1671,31 +1646,6 @@ async def auto_filter(client, msg, spoll=False):
       
     sizeb = get_size(file.file_size)
     nameb = file.file_name
-      
-    if '@' in nameb:
-      if '@Massmovies0' in nameb:
-         nameb = nameb.replace('@Massmovies0','')
-        
-      if '@CC' in nameb:
-         nameb = nameb.replace('@CC','')
-        
-      if nameb[0]=='@' or nameb[0]=='[':
-         nameb=nameb[6:]
-      
-      if '@' in nameb:
-         nameb = nameb.replace('@','')
-        
-      if '' in nameb:
-         nameb = nameb.replace(' ','.')
-        
-      if '@' in nameb:
-         nameb = nameb.replace('@','')
-        
-      if '...' in nameb:
-         nameb = nameb.replace('...','.')
-        
-      if '..' in nameb:
-         nameb = nameb.replace('..','.')
 
     if SINGLE_BUTTON:
         btn = [
