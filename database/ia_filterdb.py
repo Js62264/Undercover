@@ -37,8 +37,6 @@ async def save_file(media):
     # TODO: Find better way to get same file_id for same media to avoid duplicates
     file_id, file_ref = unpack_new_file_id(media.file_id)
     file_name = re.sub(r"(_|\-|\.|\+)", " ", str(media.file_name))
-    
-
     try:
         file = Media(
             file_id=file_id,
@@ -55,11 +53,14 @@ async def save_file(media):
     else:
         try:
             await file.commit()
-        except DuplicateKeyError:
-            logger.warning(media.file_name + " is already saved in database")
+        except DuplicateKeyError:      
+            logger.warning(
+                f'{getattr(media, "file_name", "NO_FILE")} is already saved in database'
+            )
+
             return False, 0
         else:
-            logger.info(media.file_name + " is saved in database")
+            logger.info(f'{getattr(media, "file_name", "NO_FILE")} is saved to database')
             return True, 1
 
 
@@ -68,12 +69,17 @@ async def get_search_results(query, file_type=None, max_results=10, offset=0, fi
     """For given query return (results, next_offset)"""
 
     query = query.strip()
+    #if filter:
+        #better ?
+        #query = query.replace(' ', r'(\s|\.|\+|\-|_)')
+        #raw_pattern = r'(\s|_|\-|\.|\+)' + query + r'(\s|_|\-|\.|\+)'
     if not query:
         raw_pattern = '.'
     elif ' ' not in query:
         raw_pattern = r'(\b|[\.\+\-_])' + query + r'(\b|[\.\+\-_])'
     else:
         raw_pattern = query.replace(' ', r'.*[\s\.\+\-_]')
+    
     try:
         regex = re.compile(raw_pattern, flags=re.IGNORECASE)
     except:
@@ -102,6 +108,7 @@ async def get_search_results(query, file_type=None, max_results=10, offset=0, fi
     files = await cursor.to_list(length=max_results)
 
     return files, next_offset, total_results
+
 
 
 async def get_file_details(query):
