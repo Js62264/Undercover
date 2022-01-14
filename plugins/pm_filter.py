@@ -198,6 +198,9 @@ async def next_page(bot, query):
 
     if not files:
         return
+      
+    for file in files
+   
     sizeb = get_size(file.file_size)
     nameb = file.file_name
       
@@ -1667,6 +1670,34 @@ async def auto_filter(client, msg, spoll=False):
     else:
         message = msg.message.reply_to_message # msg will be callback query
         search, files, offset, total_results = spoll
+    sizeb = get_size(file.file_size)
+    nameb = file.file_name
+      
+    if '@' in nameb:
+      if '@Massmovies0' in nameb:
+         nameb = nameb.replace('@Massmovies0','')
+        
+      if '@CC' in nameb:
+         nameb = nameb.replace('@CC','')
+        
+      if nameb[0]=='@' or nameb[0]=='[':
+         nameb=nameb[6:]
+      
+      if '@' in nameb:
+         nameb = nameb.replace('@','')
+        
+      if '' in nameb:
+         nameb = nameb.replace(' ','.')
+        
+      if '@' in nameb:
+         nameb = nameb.replace('@','')
+        
+      if '...' in nameb:
+         nameb = nameb.replace('...','.')
+        
+      if '..' in nameb:
+         nameb = nameb.replace('..','.')
+
     if SINGLE_BUTTON:
         btn = [
             [
