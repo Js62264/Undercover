@@ -1701,10 +1701,11 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{sizeb)}┆{nameb}", callback_data=f'files#{file.file_id}'
+                    text=f"{sizeb}┆{nameb}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
+           
         ]
     else:
         btn = [
