@@ -204,9 +204,8 @@ async def next_page(bot, query):
          
     if SINGLE_BUTTON:
         btn = [
-            [
                 InlineKeyboardButton(
-                    text=f"{sizeb}┆{nameb}", callback_data=f'files#{file.file_id}'
+                    text=f"{get_size(file.file_size)}┆{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -1649,9 +1648,8 @@ async def auto_filter(client, msg, spoll=False):
 
     if SINGLE_BUTTON:
         btn = [
-            [
                 InlineKeyboardButton(
-                    text=f"{sizeb}┆{nameb}", callback_data=f'files#{file.file_id}'
+                    text=f"{get_size(file.file_size)}┆{file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
