@@ -186,6 +186,7 @@ def get_name(name):
     name = name.replace("@CC", '')
     name = name.replace("@Tamil", '')
     name = name.replace("Telegram", '')
+    name = name.replace("www", '')
     name = name.replace("join", '')
     name = name.replace("TG", '')
     name = name.replace("link", '') 
