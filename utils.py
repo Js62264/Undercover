@@ -181,9 +181,9 @@ def get_size(size):
     return "%.2f %s" % (size, units[i])
 
 def get_name(name):
-    if len(name)> 1044:
-        return name[6:]
-      
+    if name[0] == '@' or '[':
+        return name[5:]
+    
     else:
         return name
     
