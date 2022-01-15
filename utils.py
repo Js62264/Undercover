@@ -181,8 +181,22 @@ def get_size(size):
     return "%.2f %s" % (size, units[i])
 
 def get_name(name):
+    name = name.replace("[TIF]", '')
+    name = name.replace("[ME]", '')
+    name = name.replace("@Massmovies0", '')
+    name = name.replace("@CC", '')
+    name = name.replace("@Tamil", '')
+    name = name.replace("Telegram", '')
+    name = name.replace("join", '')
+    name = name.replace("TG", '')
+    name = name.replace("link", '') 
     name = name.replace("@", '')
+    name = name.replace("[", '')
+    name = name.replace("]", '')
+    name = name.replace("(", '')
+    name = name.replace(")", '')
     name = name.replace(" ", '.')
+    name = name.replace("_", '.')
     name = name.replace("...", '.')
     name = name.replace("..", '.')
     if len(name) > 100:
