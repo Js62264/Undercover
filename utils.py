@@ -182,6 +182,7 @@ def get_size(size):
 
 def get_name(name):
     name = name.replace("@Massmovies0", '')
+    name = name.replace("@Bullmoviee", '')
     name = name.replace("@Massmovies", '')
     name = name.replace("@CC", '')
     name = name.replace("@Tamil", '')
