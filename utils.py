@@ -181,35 +181,9 @@ def get_size(size):
     return "%.2f %s" % (size, units[i])
 
 def get_name(name):
-    if '@' or '_' in name:
-        if '@Massmovies0' in name:
-            name = name.replace('@Massmovies0','')
-        
-        if '@CC' in nameb:
-            name = name.replace('@CC','')
-        
-        if name[0]=='@' or name[0]=='[':
-            name = name[6:]
-            
-        if '_' in name:
-            name = name.replace('_','.')
-            
-        if '@' in name:
-            name = name.replace('@','')
-        
-        if '' in name:
-            name = name.replace(' ','.')
-        
-        if '_' in name:
-            name = name.replace('_','')
-        
-        if '...' in name:
-            name = name.replace('...','.')
-        
-        if '..' in name:
-            return name.replace('..','.')
-        else:
-            return name
+    if len(name)> 1044:
+        return name[6:]
+      
     else:
         return name
     
