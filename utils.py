@@ -181,8 +181,12 @@ def get_size(size):
     return "%.2f %s" % (size, units[i])
 
 def get_name(name):
-    if name[0] == '@' or '[':
-        return name[5:]
+    name = name.replace("@", '')
+    name = name.replace(" ", '.')
+    name = name.replace("...", '.')
+    name = name.replace("..", '.')
+    if len(name) > 100
+        return name[:6]
     
     else:
         return name
