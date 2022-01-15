@@ -185,7 +185,7 @@ def get_name(name):
     name = name.replace(" ", '.')
     name = name.replace("...", '.')
     name = name.replace("..", '.')
-    if len(name) > 100
+    if len(name) > 100:
         return name[:6]
     
     else:
