@@ -13,7 +13,7 @@ from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GRO
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid
-from utils import get_size, is_subscribed, get_poster, search_gagala, temp
+from utils import get_size, is_subscribed, get_poster, search_gagala, temp, get_name
 from database.users_chats_db import db
 from plugins.heroku import *
 from database.ia_filterdb import Media, get_file_details, get_search_results
@@ -203,7 +203,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)}┆{file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"{get_size(file.file_size)}┆{get_name(file.file_name)}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -1644,7 +1644,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"{get_size(file.file_size)}┆{file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"{get_size(file.file_size)}┆{get_name(file.file_name)}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
