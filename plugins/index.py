@@ -65,6 +65,9 @@ async def send_for_index(bot, message):
     except Exception as e:
         logger.exception(e)
         pass
+    except:
+        return
+    
     try:
         k = await bot.get_messages(chat_id, last_msg_id)
     except:
