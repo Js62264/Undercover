@@ -3,7 +3,7 @@ import asyncio
 import re
 import ast
 
-from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
+from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty, MessageEmpty
 from Script import script
 from assets.picture import *
 from assets.Quote import quote
@@ -1622,6 +1622,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.delete()
       
 async def auto_filter(client, msg, spoll=False):
+    try:
+        msg_id = (await client.get_chat(msg)).id
+    except MessageEmpty:
+        pass
+      
     if not spoll:
         message = msg
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
