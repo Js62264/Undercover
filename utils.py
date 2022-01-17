@@ -240,9 +240,8 @@ def get_name(name):
     name = name.replace("...", '.')
     name = name.replace("..", '.')
     
-    if len(name)==0:
+    if name=='None':
         pass
-    
     else:
         return name
     
