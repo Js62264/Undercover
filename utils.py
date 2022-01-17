@@ -240,7 +240,7 @@ def get_name(name):
     name = name.replace("...", '.')
     name = name.replace("..", '.')
     
-    if name=="None":
+    if len(name)==0:
         return
     else:
         return name
