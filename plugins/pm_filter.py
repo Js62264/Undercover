@@ -1627,8 +1627,12 @@ async def auto_filter(client, msg, spoll=False):
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
         if 2 < len(message.text) < 100:
-            search = message.text
-            files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
+            try:
+               search = message.text
+               files, offset, total_results = await get_search_results(search.lower(), offset=0, filter=True)
+            except MessageEmpty:
+               pass
+            
             if not files:
                 if SPELL_CHECK_REPLY:
                     return await advantage_spell_chok(msg)
@@ -1639,10 +1643,6 @@ async def auto_filter(client, msg, spoll=False):
     else:
         message = msg.message.reply_to_message # msg will be callback query
         search, files, offset, total_results = spoll
-    try:
-        msg_id = (await client.get_chat(msg)).id
-    except MessageEmpty:
-        pass
       
     if SINGLE_BUTTON:
         btn = [
