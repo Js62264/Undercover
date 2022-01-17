@@ -240,10 +240,7 @@ def get_name(name):
     name = name.replace("...", '.')
     name = name.replace("..", '.')
     
-    if name==None:
-        pass
-    else:
-        return name
+    return name
     
 def split_list(l, n):
     for i in range(0, len(l), n):
