@@ -241,7 +241,8 @@ def get_name(name):
     name = name.replace("..", '.')
     
     if len(name)==0:
-        return
+        pass
+    
     else:
         return name
     
