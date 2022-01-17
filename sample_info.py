@@ -21,4 +21,7 @@ DATABASE_URI = "mongodb://[username:password@]host1[:port1][,...hostN[:portN]][/
 DATABASE_NAME = 'Telegram'
 COLLECTION_NAME = 'channel_files'  # If you are using the same database, then use different collection name for each bot
 
+#custom caption
+CUSTOM_FILE_CAPTION = 'Name : {file_name} \nSize: {file_size}'
+BATCH_FILE_CAPTION = '{file_name}'
 
