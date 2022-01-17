@@ -67,7 +67,6 @@ async def send_for_index(bot, message):
         pass
     except:
         return
-    
     try:
         k = await bot.get_messages(chat_id, last_msg_id)
     except:
