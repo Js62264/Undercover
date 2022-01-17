@@ -191,6 +191,7 @@ def get_name(name):
     name = name.replace("Massmovies0", '')
     name = name.replace("Bullmoviee", '')
     name = name.replace("Massmovies", '')
+    name = name.replace("Maassmovies",'')
     name = name.replace("massmovies0", '')
     name = name.replace("Bullmoviee", '')
     name = name.replace("massmovies", '')
