@@ -220,15 +220,28 @@ def get_name(name):
     name = name.replace("[ME]", '')
     name = name.replace("[", '')
     name = name.replace("]", '')
+    name = name.replace("MLM", '')
+    name = name.replace("RMK", '')
+    name = name.replace("MC", '')
+    name = name.replace("MFA", '')
+    name = name.replace("MM", '')
+    name = name.replace("ME", '')
+    name = name.replace("1TamilMV", '')
+    name = name.replace("Linkz", '')
+    name = name.replace("TamilMob", '')
+    name = name.replace("tg", '')
+    name = name.replace("Bollyarchives", '')
+    name = name.replace("🎞", '')
+    name = name.replace("🎬", '')
     name = name.replace("(", '')
     name = name.replace(")", '')
     name = name.replace(" ", '.')
     name = name.replace("_", '.')
     name = name.replace("...", '.')
     name = name.replace("..", '.')
-    if len(name) > 100:
-        return name[:6]
     
+    if name=="None":
+        return
     else:
         return name
     
