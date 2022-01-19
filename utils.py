@@ -196,6 +196,7 @@ def get_name(name):
     name = name.replace("Bullmoviee", '')
     name = name.replace("massmovies", '')
     name = name.replace("TIF", '')
+    name = name.replace("F&T", '')
     name = name.replace("FBM", '')
     name = name.replace("mwkOTT", '')
     name = name.replace("Team_HDT", '')
