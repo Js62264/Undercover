@@ -641,7 +641,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode='html'
         )
       
-    if int(user) != 0 and query.from_user.id != int(user):
+    elif int(user) != 0 and query.from_user.id != int(user):
       await query.answer("That's Not For You 😲",show_alert=True)
       return
    
