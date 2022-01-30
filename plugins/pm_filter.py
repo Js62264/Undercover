@@ -122,6 +122,24 @@ async def give_filter(client,message):
             parse_mode='html'
          )
          
+    if 'all' and 'of' and 'us' and 'are' in name.lower():
+         buttons = [
+            [
+                InlineKeyboardButton('480p', callback_data='AOUAD_480p'),
+                InlineKeyboardButton('720p', callback_data='AOUAD_720p')
+            ],
+            [
+                InlineKeyboardButton('1080p', callback_data='AOUAD_1080p')
+            ]
+         ]
+         reply_markup = InlineKeyboardMarkup(buttons)
+         await message.reply_photo(
+            photo=AOUAD_PIC,
+            caption=quote.AOUAD_2 ,
+            reply_markup=reply_markup,
+            parse_mode='html'
+         )
+         
     if 'witcher' in name.lower():
          buttons = [
             [
