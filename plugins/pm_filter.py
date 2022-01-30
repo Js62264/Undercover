@@ -191,7 +191,7 @@ async def give_filter(client,message):
             caption=quote.VIKINGS_2 ,
             reply_markup=reply_markup,
             parse_mode='html'
-         )  
+         )
 
 @Client.on_callback_query(filters.regex(r"^next"))
 async def next_page(bot, query):
@@ -301,6 +301,7 @@ async def advantage_spoll_choker(bot, query):
 async def cb_handler(client: Client, query: CallbackQuery):
     if query.data == "close_data":
         await query.message.delete()
+    
     elif query.data == "delallconfirm":
         userid = query.from_user.id
         chat_type = query.message.chat.type
@@ -639,6 +640,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
+      
+    if int(query.from_user.id) != int(user_id):
+      await query.answer("That's Not For You 😲",show_alert=True)
+            return
+      
     elif query.data == "you_720p":
         buttons= [
            [
