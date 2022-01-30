@@ -641,10 +641,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode='html'
         )
       
-    if int(query.from_user.id) != int(user_id):
+    if int(user) != 0 and query.from_user.id != int(user):
       await query.answer("That's Not For You 😲",show_alert=True)
       return
-      
+   
     elif query.data == "you_720p":
         buttons= [
            [
