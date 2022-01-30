@@ -36,7 +36,7 @@ async def give_filter(client,message):
     if k == False:
         await auto_filter(client, message)
       
-    if name.lower() == 'stranger things':
+    if 'stranger things' in name.lower():
          buttons = [
             [
                 InlineKeyboardButton('English', callback_data='stranger_things_E'),
@@ -50,7 +50,7 @@ async def give_filter(client,message):
             reply_markup=reply_markup,
             parse_mode='html'
          )
-    if name.lower() == 'maradona':
+    if 'maradona' in name.lower():
          buttons = [
             [
                 InlineKeyboardButton('English', callback_data='Maradona_E')
@@ -67,7 +67,7 @@ async def give_filter(client,message):
             reply_markup=reply_markup,
             parse_mode='html'
          )
-    if name.lower() == 'money heist' or name.lower() == 'la casa de papel':
+    if 'money heist' in name.lower() or 'la casa de papel' in name.lower():
          buttons = [
             [
                 InlineKeyboardButton('English', callback_data='money_heist_E'),
@@ -104,7 +104,7 @@ async def give_filter(client,message):
             reply_markup=reply_markup,
             parse_mode='html'
          )
-    if name.lower() == 'cobra kai':
+    if 'cobra kai' in name.lower():
          buttons = [
             [
                 InlineKeyboardButton('480p', callback_data='cobra_kai_480p'),
@@ -122,7 +122,7 @@ async def give_filter(client,message):
             parse_mode='html'
          )
          
-    if name.lower() == 'the witcher' or name.lower() == 'witcher':
+    if 'witcher' in name.lower():
          buttons = [
             [
                 InlineKeyboardButton('480p', callback_data='witcher_480p'),
@@ -140,7 +140,7 @@ async def give_filter(client,message):
             parse_mode='html'
          )
          
-    if name.lower() == 'peaky blinders':
+    if 'peaky blinders' in name.lower():
          buttons = [
             [
                 InlineKeyboardButton('720p', callback_data='peaky_blinders_720p')
@@ -157,7 +157,7 @@ async def give_filter(client,message):
             parse_mode='html'
          )
          
-    if name.lower() == 'vikings' or name.lower() == 'viking':
+    if 'vikings' in name.lower() or 'viking' in name.lower():
          buttons = [
             [
                 InlineKeyboardButton('480p', callback_data='vikings_480p'),
