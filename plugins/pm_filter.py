@@ -670,7 +670,36 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode='html'
         )
-      
+    elif query.data == "AOUAD_720p":
+        buttons= [
+           [
+              InlineKeyboardButton('Korean', callback_data='AOUAD_K_720p'),
+              InlineKeyboardButton('English', callback_data='AOUAD_E_720p')
+           ],
+           [
+              InlineKeyboardButton('Hindi', callback_data='AOUAD_H_720p')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.AOUAD_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "AOUAD_1080p":
+        buttons= [
+           [
+              InlineKeyboardButton('Korean', callback_data='AOUAD_K_1080p'),
+              InlineKeyboardButton('English', callback_data='AOUAD_E_1080p')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.AOUAD_1,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+         
     elif query.data == "witcher_720p":
         buttons= [
            [
@@ -758,7 +787,99 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text=quote.RESULT_TXT,
             reply_markup=reply_markup,
             parse_mode='html'
-        )     
+        ) 
+    elif query.data == "AOUAD_E_720p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADsgQAAmghuFfhzpUzn8q-3BYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "AOUAD_K_720p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADswQAAmghuFdeBlfcPT876xYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+        
+    elif query.data == "AOUAD_H_720p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADtQQAAmghuFd8MdJOKa7p0xYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "AOUAD_E_1080p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADuAQAAmghuFeB0uCGlKWG_RYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+    elif query.data == "AOUAD_K_1080p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADtgQAAmghuFcqh_6rddMYTxYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
+        
+    elif query.data == "AOUAD_480p":
+        buttons= [
+           [
+            InlineKeyboardButton('Season 01', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADuQQAAmghuFfURi5n72bSsRYE')
+           ],
+           [
+            InlineKeyboardButton('Close', callback_data='cls')
+           ]
+        ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text=quote.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+        )
     elif query.data == "vikings_E_480p":
         buttons= [
            [
