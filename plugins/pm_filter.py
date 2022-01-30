@@ -36,7 +36,7 @@ async def give_filter(client,message):
     if k == False:
         await auto_filter(client, message)
       
-    if 'stranger things' in name.lower():
+    if 'stranger' and 'things' in name.lower():
          buttons = [
             [
                 InlineKeyboardButton('English', callback_data='stranger_things_E'),
@@ -67,7 +67,7 @@ async def give_filter(client,message):
             reply_markup=reply_markup,
             parse_mode='html'
          )
-    if 'money heist' in name.lower() or 'la casa de papel' in name.lower():
+    if 'money' and 'heist' in name.lower() or 'la casa de papel' == name.lower():
          buttons = [
             [
                 InlineKeyboardButton('English', callback_data='money_heist_E'),
@@ -104,7 +104,7 @@ async def give_filter(client,message):
             reply_markup=reply_markup,
             parse_mode='html'
          )
-    if 'cobra kai' in name.lower():
+    if 'cobra' and 'kai' in name.lower():
          buttons = [
             [
                 InlineKeyboardButton('480p', callback_data='cobra_kai_480p'),
@@ -140,7 +140,7 @@ async def give_filter(client,message):
             parse_mode='html'
          )
          
-    if 'peaky blinders' in name.lower():
+    if 'peaky' and 'blinders' in name.lower():
          buttons = [
             [
                 InlineKeyboardButton('720p', callback_data='peaky_blinders_720p')
