@@ -154,7 +154,32 @@ Group = {}(<code>{}</code>)
 Total Members = <code>{}</code>
 Added By - {}
 """
+    
     LOG_TEXT_P = """#NewUser #BSB
 ID - <code>{}</code>
 Name - {}
+"""
+    
+    LANG_TEXT = """
+○ Title: {}
+○ Year: {}
+○ Language: {}
+○ Season: Season {}
+○ Quality: {}
+    
+Choose the language you want..
+"""
+    
+    QUALITY_TEXT = """
+○ Title: {}
+○ Year: {}
+○ Language: {}
+○ Season: Season {}
+○ Quality: {}
+    
+Choose the Quality you want..
+"""
+    
+    RESULT_TXT = """
+○ Here Is Result For Your Request
 """
