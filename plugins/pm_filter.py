@@ -140,6 +140,24 @@ async def give_filter(client,message):
             parse_mode='html'
          )
          
+    if 'ted' and 'lasso' in name.lower():
+         buttons = [
+            [
+                InlineKeyboardButton('Season 1', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADkgQAAis54FeL_X5eSJGx3xYE'),
+                InlineKeyboardButton('Season 2', url='https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADlAQAAis54FcJM2SicgziaxYE')
+            ],
+            [
+                InlineKeyboardButton('Close', callback_data='cls')
+            ]
+         ]
+         reply_markup = InlineKeyboardMarkup(buttons)
+         await message.reply_photo(
+            photo=TED_LASSO_PIC,
+            caption=script.RESULT_TXT,
+            reply_markup=reply_markup,
+            parse_mode='html'
+         )
+   
     if 'witcher' in name.lower():
          buttons = [
             [
