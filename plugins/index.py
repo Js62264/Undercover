@@ -154,7 +154,9 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
                 elif vnay == 2:
                     errors += 1
         except FloodWait as e:
-            await asyncio.sleep(e.x)
+            await asyncio.sleep(30)
+            logger.exception(e)
+            continue
         
         except Exception as e:
             logger.exception(e)
