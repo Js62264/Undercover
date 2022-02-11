@@ -153,6 +153,10 @@ async def index_files_to_db(lst_msg_id, chat, msg, bot):
                     duplicate += 1
                 elif vnay == 2:
                     errors += 1
+        except FloodWait as e:
+            await asyncio.sleep(e.x)
+            return await index_files_to_db(lst_msg_id, chat, msg, bot)
+        
         except Exception as e:
             logger.exception(e)
             await msg.edit(f'Error: {e}')
