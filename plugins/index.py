@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.errors.exceptions.bad_request_400 import ChannelInvalid, ChatAdminRequired, UsernameInvalid, UsernameNotModified
 from info import ADMINS
-from info import LOG_CHANNEL
+from info import INDEX_REQ_CHANNEL as LOG_CHANNEL
 from database.ia_filterdb import save_file
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from utils import temp
@@ -59,18 +59,16 @@ async def send_for_index(bot, message):
     try:
         await bot.get_chat(chat_id)
     except ChannelInvalid:
-        pass
+        return 
     except (UsernameInvalid, UsernameNotModified):
-        pass
+        return
     except Exception as e:
         logger.exception(e)
-        pass
-    except:
         return
     try:
         k = await bot.get_messages(chat_id, last_msg_id)
     except:
-        return
+        return 
     if k.empty:
         return
 
@@ -78,7 +76,7 @@ async def send_for_index(bot, message):
         try:
             link = (await bot.create_chat_invite_link(chat_id)).invite_link
         except ChatAdminRequired:
-            pass
+            return await message.reply('Make sure iam an admin in the chat and have permission to invite users.')
     else:
         link = f"@{message.forward_from_chat.username}"
     buttons = [
@@ -105,7 +103,7 @@ async def set_skip_number(bot, message):
             skip = int(skip)
         except:
             return await message.reply("Skip number should be an integer.")
-        await message.reply(f"Succesfully set SKIP number as {skip}")
+        await message.reply(f"Successfully set SKIP number as {skip}")
         temp.CURRENT = int(skip)
     else:
         await message.reply("Give me a skip number")
