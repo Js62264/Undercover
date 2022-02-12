@@ -211,6 +211,7 @@ def get_name(name):
     name = name.replace("imax5", '')
     name = name.replace("Kerala Rock", '')
     name = name.replace("OTT", '')
+    name = name.replace("Rarefilms", '')
     name = name.replace("LinkzZ", '')
     name = name.replace("movems", '')
     name = name.replace("Moviezz", '')
