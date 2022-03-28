@@ -122,7 +122,7 @@ async def give_filter(client,message):
             parse_mode='html'
          )
          
-    if 'all' and 'of' and 'us' and 'are' in name.lower():
+    if ('all' and 'of' and 'us' and 'are') in name.lower():
          buttons = [
             [
                 InlineKeyboardButton('480p', callback_data='AOUAD_480p'),
