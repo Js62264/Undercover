@@ -244,6 +244,9 @@ def get_name(name):
     name = name.replace("...", '.')
     name = name.replace("..", '.')
     
+    if name[0] == '.':
+        name = name[1:]
+    
     return name
     
 def split_list(l, n):
