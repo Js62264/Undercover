@@ -205,6 +205,8 @@ def get_name(name):
     name = name.replace("Cinema", '')
     name = name.replace("Hotstar ", '')
     name = name.replace("APDBackup", '')
+    name = name.replace("StreamersHub", '')
+    name = name.replace("Tg", '')
     name = name.replace("Movies", '')
     name = name.replace("AVA", '')
     name = name.replace("Tamilrockers", '')
