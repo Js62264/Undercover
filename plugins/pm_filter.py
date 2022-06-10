@@ -571,13 +571,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
          await asyncio.sleep(30)
          await k.delete()
         
-      except UserIsBlocked:
+       except UserIsBlocked:
          await query.answer('You Blocked Me!!. Start Me In privet chat and try Again.',show_alert = True)
-        
-      except PeerIdInvalid:
+       except PeerIdInvalid:
          await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
-        
-      except Exception as e:
+       except Exception as e:
          await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
       
 #             if AUTH_CHANNEL and not await is_subscribed(client, query):
