@@ -547,10 +547,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
             
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
-                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
+                await query.answer(url=f"https://shorturllink.in/api?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}")
                 return
             elif P_TTI_SHOW_OFF:
-                await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
+                await query.answer(url=f"https://shorturllink.in/api?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}")
                 return
             else:
                 await client.send_cached_media(
@@ -562,9 +562,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except UserIsBlocked:
             await query.answer('You Blocked Me!!. Start Me In privet chat and try Again.',show_alert = True)
         except PeerIdInvalid:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
+            await query.answer(url=f"https://shorturllink.in/api?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}")
         except Exception as e:
-            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
+            await query.answer(url=f"https://shorturllink.in/api?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}")
 
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
@@ -1863,11 +1863,17 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"📃 1/{round(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="Check PM 📨", url ='https://t.me/SpaciousUniverseBot'), InlineKeyboardButton(text="》",callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f"📃 1/{round(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="》",callback_data=f"next_{req}_{key}_{offset}")]
+        )
+        btn.append(
+           [InlineKeyboardButton(text="🔰 How To Download 🔰", url="https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXAUAAvvEGVWDT7ebLu5AbhYE")]
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="📃 1/1",callback_data="pages"), InlineKeyboardButton(text="Check PM 📨", url ='https://t.me/SpaciousUniverseBot'),]
+            [InlineKeyboardButton(text="📃 1/1",callback_data="pages")]
+        )
+        btn.append(
+           [InlineKeyboardButton(text="🔰 How To Download 🔰", url="https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXAUAAvvEGVWDT7ebLu5AbhYE")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if IMDB else None
     if imdb:
