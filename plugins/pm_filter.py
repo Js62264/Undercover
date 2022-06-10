@@ -542,15 +542,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f"{files.file_name}"
             
         try:
-            buttons = [[
-               InlineKeyboardButton('Verify', url=f'https://shorturllink.in/st?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}')
-            ]]
-            reply_markup=InlineKeyboardMarkup(buttons)
-            await bot.send_message(
-               chat_id=query.from_user.id,
-               text='<b>please verify your identity. this protects the bot from spammers</b>',
-               reply_markup=reply_markup,
-            )
+            if AUTH_CHANNEL and not await is_subscribed(client, query):
+               
+               buttons = [[
+                  InlineKeyboardButton('Verify', url=f'https://shorturllink.in/st?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}')
+               ]]
+               reply_markup=InlineKeyboardMarkup(buttons)
+               await bot.send_message(
+                  chat_id=query.from_user.id,
+                  text='<b>please verify your identity. this protects the bot from spammers</b>',
+                  reply_markup=reply_markup,
+               )
 #             if AUTH_CHANNEL and not await is_subscribed(client, query):
 #                 await query.answer(url=f"https://shorturllink.in/st?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}")
 #                 return
