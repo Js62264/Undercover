@@ -29,7 +29,7 @@ logger.setLevel(logging.ERROR)
 BUTTONS = {}
 SPELL_CHECK = {}
 
-@Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
+@Client.on_message(filters.text & filters.private & filters.incoming)
 async def give_filter(client, message):
     if message.text.startswith("/"):
         return  
