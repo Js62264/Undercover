@@ -363,6 +363,7 @@ async def advantage_spoll_choker(bot, query):
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
+    chat_type = message.chat.type
     if query.data == "close_data":
         await query.message.delete()
     
@@ -563,7 +564,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
            InlineKeyboardButton('💠 Verify 💠', url=f'https://shorturllink.in/st?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
-        chat_type = query.chat.type
         k = await client.send_message(
            chat_id=query.from_user.id,
            text='<b>Please verify your identity within 30s.This is Protects the bot from spammers</b>',
