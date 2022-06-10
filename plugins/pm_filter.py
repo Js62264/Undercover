@@ -297,6 +297,9 @@ async def next_page(bot, query):
                  callback_data="pages",
               ),
               InlineKeyboardButton(
+                 text="Check PM 📨", url ='https://t.me/SpaciousUniverseBot'
+              ), 
+              InlineKeyboardButton(
                  "》", callback_data=f"next_{req}_{key}_{n_offset}"
               ),
            ],
@@ -1879,14 +1882,14 @@ async def auto_filter(client, msg, spoll=False):
         BUTTONS[key] = search
         req = message.from_user.id if message.from_user else 0
         btn.append(
-            [InlineKeyboardButton(text=f"📃 1/{round(int(total_results)/10)}",callback_data="pages"), InlineKeyboardButton(text="》",callback_data=f"next_{req}_{key}_{offset}")]
+            [InlineKeyboardButton(text=f"📃 1/{round(int(total_results)/10)}",callback_data="pages"),InlineKeyboardButton(text="Check PM 📨", url ='https://t.me/SpaciousUniverseBot'),  InlineKeyboardButton(text="》",callback_data=f"next_{req}_{key}_{offset}")]
         )
         btn.append(
            [InlineKeyboardButton(text="🔰 How To Download 🔰", url="https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXAUAAvvEGVWDT7ebLu5AbhYE")]
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="📃 1/1",callback_data="pages")]
+            [InlineKeyboardButton(text="📃 1/1",callback_data="pages"),InlineKeyboardButton(text="Check PM 📨", url ='https://t.me/SpaciousUniverseBot')]
         )
         btn.append(
            [InlineKeyboardButton(text="🔰 How To Download 🔰", url="https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXAUAAvvEGVWDT7ebLu5AbhYE")]
