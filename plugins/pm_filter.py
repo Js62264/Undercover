@@ -280,7 +280,7 @@ async def next_page(bot, query):
                  "《", callback_data=f"next_{req}_{key}_{off_set}"
               ),
               InlineKeyboardButton(
-                 text="Check PM", url='https://t.me/SpaciousUniverseBot'
+                 text="📨", url='https://t.me/SpaciousUniverseBot'
               ),
            ],
            [
@@ -299,7 +299,7 @@ async def next_page(bot, query):
                  callback_data="pages",
               ),
               InlineKeyboardButton(
-                 text="Check PM 📨", url ='https://t.me/SpaciousUniverseBot'
+                 text="📨", url ='https://t.me/SpaciousUniverseBot'
               ), 
               InlineKeyboardButton(
                  "》", callback_data=f"next_{req}_{key}_{n_offset}"
@@ -318,17 +318,10 @@ async def next_page(bot, query):
               InlineKeyboardButton("《", callback_data=f"next_{req}_{key}_{off_set}"),
               InlineKeyboardButton(
                  f" 📃 {round(offset / 10) + 1} / {round(total/10)}  ",
-                 callback_data="pages",
+                 url='https://t.me/SpaciousUniverseBot',
               ),
               InlineKeyboardButton("》", callback_data=f"next_{req}_{key}_{n_offset}")
            ],
-        )
-        btn.append(
-            [
-               InlineKeyboardButton(
-                  text="Check PM 📨", url='https://t.me/SpaciousUniverseBot'
-              )
-            ]
         )
         btn.append(
             [
@@ -2039,7 +2032,7 @@ async def auto_filter(client, msg, spoll=False):
         btn.append(
             [
                InlineKeyboardButton(text="📃 1/1",callback_data="pages"),
-               InlineKeyboardButton(text="Check PM 📨", url ='https://t.me/SpaciousUniverseBot')
+               InlineKeyboardButton(text="📨", url ='https://t.me/SpaciousUniverseBot')
             ]
         )
         btn.append(
