@@ -30,12 +30,15 @@ BUTTONS = {}
 SPELL_CHECK = {}
 
 @Client.on_message(filters.text & filters.private & filters.incoming)
-async def give_filter(client, message):
+async def pm_filter(client, message):
     if message.text.startswith("/"):
         return  
-    await message.reply_text("Couldn't find that filter!", quote=True)
-#     name = message.text
-#     await auto_filter(client, message)
+    await client.send_message(
+                chat_id=message.from_user.id,
+                text="Something went Wrong.",
+                parse_mode="markdown",
+                disable_web_page_preview=True
+            )
 
 @Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
 async def give_filter(client,message):
