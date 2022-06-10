@@ -558,25 +558,25 @@ async def cb_handler(client: Client, query: CallbackQuery):
             f_caption = f"{files.file_name}"
             
         try:
-         buttons = [[
-            InlineKeyboardButton('💠 Verify 💠', url=f'https://shorturllink.in/st?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}')
-         ]]
-         reply_markup=InlineKeyboardMarkup(buttons)
-         k = await client.send_message(
-            chat_id=query.from_user.id,
-            text='<b>Please verify your identity within 30s.This is Protects the bot from spammers</b>',
-            reply_markup=reply_markup,
-         )
-         await query.answer('Check My Privet Chat, I have sent message to You', show_alert=True)
-         await asyncio.sleep(30)
-         await k.delete()
+           buttons = [[
+              InlineKeyboardButton('💠 Verify 💠', url=f'https://shorturllink.in/st?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}')
+           ]]
+           reply_markup=InlineKeyboardMarkup(buttons)
+           k = await client.send_message(
+           chat_id=query.from_user.id,
+           text='<b>Please verify your identity within 30s.This is Protects the bot from spammers</b>',
+           reply_markup=reply_markup,
+           )
+           await query.answer('Check My Privet Chat, I have sent message to You', show_alert=True)
+           await asyncio.sleep(30)
+           await k.delete()
         
        except UserIsBlocked:
-         await query.answer('You Blocked Me!!. Start Me In privet chat and try Again.',show_alert = True)
+            await query.answer('You Blocked Me!!. Start Me In privet chat and try Again.',show_alert = True)
        except PeerIdInvalid:
-         await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
+            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
        except Exception as e:
-         await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
+            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={file_id}")
       
 #             if AUTH_CHANNEL and not await is_subscribed(client, query):
 #                 await query.answer(url=f"https://shorturllink.in/st?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}")
