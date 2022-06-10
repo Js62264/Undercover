@@ -330,6 +330,13 @@ async def next_page(bot, query):
         )
         btn.append(
             [
+               InlineKeyboardButton(
+                  text="Check PM 📨", url='https://t.me/SpaciousUniverseBot'
+              )
+            ]
+        )
+        btn.append(
+            [
                 InlineKeyboardButton(
                     text="🔰 How To Download 🔰", url="https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXAUAAvvEGVWDT7ebLu5AbhYE"
                 )
