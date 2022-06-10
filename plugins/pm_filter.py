@@ -33,12 +33,7 @@ SPELL_CHECK = {}
 async def pm_filter(client, message):
     if message.text.startswith("/"):
         return  
-    await client.send_message(
-                chat_id=message.from_user.id,
-                text="Something went Wrong.",
-                parse_mode="markdown",
-                disable_web_page_preview=True
-            )
+    await auto_filter(client, message)
 
 @Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
 async def give_filter(client,message):
