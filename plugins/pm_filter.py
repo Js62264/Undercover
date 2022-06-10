@@ -289,7 +289,7 @@ async def next_page(bot, query):
         )
 
 
-    elif off_set is None:
+    elif (off_set is None) or (off_set == 0):
         btn.append(
            [[
               InlineKeyboardButton(
