@@ -306,9 +306,6 @@ async def next_page(bot, query):
               )
            ]]
         )
-                 
-                 
-        )
 
     else:
         btn.append(
