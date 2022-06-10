@@ -181,7 +181,7 @@ def get_size(size):
     return "%.2f %s" % (size, units[i])
 
 def get_name(name):
-    name.lower()
+    name = name.lower()
     if name is None:
         return
     elif ('sample' or 'hdcam' or 'predvd' or 'camcopy') in name:
@@ -247,7 +247,6 @@ def get_name(name):
 
         if name[0] == '.':
             name = name[1:]
-        name.lower()
         return name
     
 def split_list(l, n):
