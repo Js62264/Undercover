@@ -556,16 +556,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
             
 #         try:
         buttons = [[
-           InlineKeyboardButton('Verify', url=f'https://shorturllink.in/st?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}')
+           InlineKeyboardButton('💠 Verify 💠', url=f'https://shorturllink.in/st?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
-        await client.send_message(
+        k = await client.send_message(
            chat_id=query.from_user.id,
            text='<b>Please verify your identity within 30s.This is Protects the bot from spammers</b>',
            reply_markup=reply_markup,
         )
         await asyncio.sleep(30)
-        await client.delete_messages(message.chat.id, message.message_id)
+        await k.delete()
         await query.answer('Check My Privet Chat, I have sent message to You', show_alert=True)
 #             if AUTH_CHANNEL and not await is_subscribed(client, query):
 #                 await query.answer(url=f"https://shorturllink.in/st?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}")
