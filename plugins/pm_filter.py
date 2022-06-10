@@ -312,16 +312,19 @@ async def next_page(bot, query):
 
     else:
         btn.append(
-            [
-                InlineKeyboardButton("《", callback_data=f"next_{req}_{key}_{off_set}"),
-                InlineKeyboardButton("》", callback_data=f"next_{req}_{key}_{n_offset}")
-            ],
+           [
+              InlineKeyboardButton("《", callback_data=f"next_{req}_{key}_{off_set}"),
+              InlineKeyboardButton(
+                 f"📃 Page : {round(offset / 10) + 1} / {round(total/10)} 📃 ",
+                 callback_data="pages",
+              )
+              InlineKeyboardButton("》", callback_data=f"next_{req}_{key}_{n_offset}")
+           ],
         )
         btn.append(
             [
                 InlineKeyboardButton(
-                    f"📃 Page : {round(offset / 10) + 1} / {round(total/10)} 📃 ",
-                    callback_data="pages",
+                    text="🔰 How To Download 🔰", url="https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXAUAAvvEGVWDT7ebLu5AbhYE"
                 )
             ]
         )
