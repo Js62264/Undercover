@@ -551,6 +551,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
            text='<b>please verify your identity. this protects the bot from spammers</b>',
            reply_markup=reply_markup,
         )
+        await query.answer('Check My Privet Chat, I have sent message to You', show_alert=True)
 #             if AUTH_CHANNEL and not await is_subscribed(client, query):
 #                 await query.answer(url=f"https://shorturllink.in/st?api=3ef6a62253efbe7a63dd29201b2f9c661bd15795&url=https://t.me/{temp.U_NAME}?start={file_id}")
 #                 return
