@@ -269,32 +269,45 @@ async def next_page(bot, query):
         off_set = offset - 10
     if n_offset == 0:
         btn.append(
-            [
-                InlineKeyboardButton(
-                    "《", callback_data=f"next_{req}_{key}_{off_set}"
-                ),
-                InlineKeyboardButton(
-                    f"📃 {round(offset / 10) + 1} / {round(total/10)}",
-                    callback_data="pages",
-                ),
-                InlineKeyboardButton(
-                    text="Check PM", url='https://t.me/SpaciousUniverseBot'
-                ),
-            ]
+           [[
+              InlineKeyboardButton(
+                 "《", callback_data=f"next_{req}_{key}_{off_set}"
+              ),
+              InlineKeyboardButton(
+                 f"📃 {round(offset / 10) + 1} / {round(total/10)}",
+                 callback_data="pages",
+              ),
+              InlineKeyboardButton(
+                 text="Check PM", url='https://t.me/SpaciousUniverseBot'
+              ),
+           ],
+           [
+              InlineKeyboardButton(
+                 text="🔰 How To Download 🔰", url="https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXAUAAvvEGVWDT7ebLu5AbhYE"
+              )
+           ]]
         )
 
 
     elif off_set is None:
         btn.append(
-            [
-                InlineKeyboardButton(
-                    f"📃 {round(offset / 10) + 1} / {round(total/10)}",
-                    callback_data="pages",
-                ),
-                InlineKeyboardButton(
-                    "》", callback_data=f"next_{req}_{key}_{n_offset}"
-                ),
-            ]
+           [[
+              InlineKeyboardButton(
+                 f"📃 {round(offset / 10) + 1} / {round(total/10)}",
+                 callback_data="pages",
+              ),
+              InlineKeyboardButton(
+                 "》", callback_data=f"next_{req}_{key}_{n_offset}"
+              ),
+           ],
+           [
+              InlineKeyboardButton(
+                 text="🔰 How To Download 🔰", url="https://t.me/SpaciousUniverseBot?start=BATCH-BQADBQADXAUAAvvEGVWDT7ebLu5AbhYE"
+              )
+           ]]
+        )
+                 
+                 
         )
 
     else:
