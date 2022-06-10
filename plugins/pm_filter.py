@@ -317,7 +317,7 @@ async def next_page(bot, query):
               InlineKeyboardButton(
                  f"📃 Page : {round(offset / 10) + 1} / {round(total/10)} 📃 ",
                  callback_data="pages",
-              )
+              ),
               InlineKeyboardButton("》", callback_data=f"next_{req}_{key}_{n_offset}")
            ],
         )
