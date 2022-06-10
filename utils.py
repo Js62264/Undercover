@@ -247,7 +247,7 @@ def get_name(name):
 
         if name[0] == '.':
             name = name[1:]
-
+        name.lower()
         return name
     
 def split_list(l, n):
