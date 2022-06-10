@@ -33,7 +33,7 @@ SPELL_CHECK = {}
 async def give_filter(client, message):
     if message.text.startswith("/"):
         return  
-    await message.reply("I couldn't find anything related to that. Check your spelling")
+    await message.reply_text("Couldn't find that filter!", quote=True)
 #     name = message.text
 #     await auto_filter(client, message)
 
