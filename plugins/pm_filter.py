@@ -32,9 +32,10 @@ SPELL_CHECK = {}
 @Client.on_message(filters.text & filters.private & filters.incoming & filters.user(AUTH_USERS) if AUTH_USERS else filters.text & filters.private & filters.incoming)
 async def give_filter(client, message):
     if message.text.startswith("/"):
-        return    
-    name = message.text
-    await auto_filter(client, message)
+        return  
+    await message.reply("I couldn't find anything related to that. Check your spelling")
+#     name = message.text
+#     await auto_filter(client, message)
 
 @Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
 async def give_filter(client,message):
