@@ -363,7 +363,6 @@ async def advantage_spoll_choker(bot, query):
 
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
-    chat_type = message.chat.type
     if query.data == "close_data":
         await query.message.delete()
     
@@ -569,8 +568,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
            text='<b>Please verify your identity within 30s.This is Protects the bot from spammers</b>',
            reply_markup=reply_markup,
         )
-        if chat_type in ["group", "supergroup"]:
-         await query.answer('Check My Privet Chat, I have sent message to You', show_alert=True)
+        #if chat_type in ["group", "supergroup"]:
+        await query.answer('Check My Privet Chat, I have sent message to You', show_alert=True)
          
         await asyncio.sleep(30)
         await k.delete()
