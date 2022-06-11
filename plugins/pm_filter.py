@@ -569,7 +569,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
            reply_markup=reply_markup,
         )
         #if chat_type in ["group", "supergroup"]:
-        await query.answer('Check My Privet Chat, I have sent message to You', show_alert=True)
+        await query.answer('I have sent a message to You', show_alert=True)
          
         await asyncio.sleep(30)
         await k.delete()
